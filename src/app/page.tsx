@@ -277,7 +277,6 @@ export default function Page() {
         <div className="mt-6 text-sm text-gray-600">
           <p>대표번호: {BRAND.phone}</p>
           <p>주소: {BRAND.address}</p>
-          <p>사업자등록번호: {BRAND.bizno}</p>
         </div>
       </Section>
 
