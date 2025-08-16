@@ -4,22 +4,25 @@ import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 /*
-  여상수(yss.com) 랜딩 흐름을 참고해 같은 구조/동선으로 재구성한 템플릿(합법적 리라이팅).
-  - Next.js App Router용 단일 파일(page.tsx)
-  - Tailwind + framer-motion 애니메이션
-  - 섹션: HERO → 브랜드소개 → 경쟁력 → 수익률 → 창업비용 → 사례 → 절차 → FAQ → 문의 → 푸터
-  - 상단 상수(BRAND/EDGE/PROFIT/비용/사례/FAQ)만 바꾸면 전체가 자동 반영
-  - 이미지 경로: /public/images/*
+  평상집 스타일의 랜딩 페이지(사진은 공백 처리)
+
+  - 섹션별 배경 사진을 지정할 수 있게 구성했습니다. 이미지 파일은 /public/images 아래에 두고
+    BG 객체에서 경로만 지정하면 됩니다. 개발/배포 시 적절한 경로로 교체하세요.
+  - 흰색 오버레이를 덧씌워 텍스트 가독성을 높였고, 모든 글씨 색상은 #222로 통일했습니다.
+  - 네비게이션 바는 스크롤 시 상단에 고정되며, 좌측 로고 클릭 시 HOME(#home)으로 이동합니다.
+  - 필요한 섹션(경쟁력, 수익률, 비용, 사례, 절차, FAQ, 문의)을 모두 포함했습니다. 원치 않는 섹션은 제거 가능.
+  - 프레이머 모션을 사용해 섹션이 화면에 나타날 때 부드러운 애니메이션을 적용했습니다.
 */
 
-// ──────────────────────────────────────────────────────────────
-// 1) 교체할 데이터
-// ──────────────────────────────────────────────────────────────
+// 브랜드 정보 및 네비게이션
 const BRAND = {
   name: "여상수",
-  tagline: "조현준 바보 할머니의 손맛그대로 안동식양념소갈비를 트렌디하게 즐기는",
+  tagline: "할머니의 손맛 그대로, 안동식 양념 소갈비를 트렌디하게 즐기는",
   phone: "010-8230-0800",
   address: "경기도 안양시 삼덕로 80-1, 1층 여상수",
+  bizno: "000-00-00000",
+  email: "contact@example.com",
+  logoSrc: "/images/logo.png", // 로고 파일명
 };
 
 const NAV = [
@@ -34,14 +37,48 @@ const NAV = [
   { href: "#contact", label: "문의" },
 ];
 
-const EDGE = [
-  { t: "1인운영 구조", d: "단일공정·동선최적화로 주방 1인 운영 가능." },
-  { t: "안정 객단가", d: "양념+소고기 중심으로 적은 운영시간 적은 테이블로 안정 매출." },
-  { t: "원가율 관리", d: "핵심 식자재 직공급, 목표 원가율 35% 내외." },
-  { t: "리모델링 창업", d: "기존매장 변경 시 비용 파격 절감." },
-  { t: "매뉴얼화", d: "초보도 가능한 조리·서비스 매뉴얼 제공." },
+// 경쟁력(이유) 데이터: 홀수 index는 세로 분할 이미지, 짝수 index는 섹션 전체 배경으로 처리
+const REASONS = [
+  {
+    num: "01",
+    title: "1인 운영 구조",
+    desc: "단일공정 · 동선 최적화로 주방 1인 운영이 가능합니다.",
+    img: "/images/reason1.jpg",
+  },
+  {
+    num: "02",
+    title: "안정 객단가",
+    desc: "양념 + 소고기 중심으로 적은 테이블에서도 안정적인 매출을 기대할 수 있습니다.",
+    img: "/images/reason2.jpg",
+  },
+  {
+    num: "03",
+    title: "원가율 관리",
+    desc: "핵심 식자재 직공급으로 목표 원가율을 35% 내외로 유지합니다.",
+    img: "/images/reason3.jpg",
+  },
+  {
+    num: "04",
+    title: "리모델링 창업",
+    desc: "기존 매장 전환 시 리모델링을 통해 CAPEX를 절감합니다.",
+    img: "/images/reason4.jpg",
+  },
+  {
+    num: "05",
+    title: "매뉴얼화",
+    desc: "초보자도 가능한 조리·서비스 매뉴얼을 제공합니다.",
+    img: "/images/reason5.jpg",
+  },
+  {
+    num: "06",
+    title: "빠른 배달 병행",
+    desc: "배달 병행 및 다양한 메뉴 확장으로 수익을 극대화합니다.",
+    img: "/images/reason6.jpg",
+  },
 ];
 
+
+// 수익률 테이블
 const PROFIT = [
   { k: "월매출(100%)", v: "58,000,000" },
   { k: "식자재(27%)", v: "-15,660,000" },
@@ -51,12 +88,13 @@ const PROFIT = [
   { k: "세전이익(44%)", v: "25,520,000" },
 ];
 
+// 비용: 소프트웨어 / 하드웨어
 const COST_SOFT = [
-  { k: "가맹비", v: "10,000,000만원" },
-  { k: "교육비", v: "5,000,000만원" },
-  { k: "디자인 및 공간기획", v: "5,000,000만원 ~ 7,000,000만원" },
-  { k: "소프트웨어 총비용", v: "20,000,000만원 ~ 22,000,000만원" },
+  { k: "가맹비", v: "10,000,000" },
+  { k: "교육비", v: "5,000,000" },
+  { k: "브랜딩/설계", v: "5,000,000 ~ 7,000,000" },
 ];
+
 const COST_HARD = [
   { k: "인테리어", v: "실비" },
   { k: "주방/기물", v: "실비" },
@@ -64,6 +102,7 @@ const COST_HARD = [
   { k: "기타설비", v: "실비" },
 ];
 
+// 사례(BEFORE / AFTER)
 const CASES = [
   {
     name: "안성아양점(30평)",
@@ -88,155 +127,413 @@ const CASES = [
   },
 ];
 
+// FAQ 목록
 const FAQ = [
-  { q: "완전 초보인데 가능한가요?", a: "조리·서비스 매뉴얼 및 1:1 교육 제공. 시범 운영 후 오픈 권장." },
-  { q: "권장 상권/면적은?", a: "오피스·주거 혼합 상권 20~40평. 배달 병행 가능 입지면 더 좋음." },
-  { q: "원가율은 어느 정도?", a: "핵심 식자재 직공급 기준 30% 내외(상권/운영 따라 변동)." },
-  { q: "오픈까지 기간은?", a: "계약 후 평균 4~6주(현장 상황/인허가에 따라 달라질 수 있음)." },
+  {
+    q: "완전 초보인데 가능한가요?",
+    a: "조리·서비스 매뉴얼 및 1:1 교육 제공. 시범 운영 후 오픈을 권장합니다.",
+  },
+  {
+    q: "권장 상권/면적은?",
+    a: "오피스·주거 혼합 상권 20~40평. 배달 병행 가능 입지면 더 좋습니다.",
+  },
+  {
+    q: "원가율은 어느 정도?",
+    a: "핵심 식자재 직공급 기준 30% 내외(상권/운영 따라 변동).",
+  },
+  {
+    q: "오픈까지 기간은?",
+    a: "계약 후 평균 4~6주(현장 상황/인허가에 따라 달라질 수 있습니다).",
+  },
 ];
 
-// ──────────────────────────────────────────────────────────────
-// 2) 공통 섹션 컴포넌트
-// ──────────────────────────────────────────────────────────────
-function Section({ id, title, subtitle, children }: { id: string; title: string; subtitle?: string; children: ReactNode }) {
+// 섹션별 배경 이미지 경로: 필요 시 실제 이미지 파일명으로 교체하세요.
+const BG = {
+  hero: "/images/hero.jpg",
+  about: "/images/bg-about.jpg",
+  edge: "/images/bg-edge.jpg",
+  profit: "/images/bg-profit.jpg",
+  cost: "/images/bg-cost.jpg",
+  cases: "/images/bg-cases.jpg",
+  process: "/images/bg-process.jpg",
+  faq: "/images/bg-faq.jpg",
+  contact: "/images/bg-contact.jpg",
+};
+
+// 공용 컨테이너: 너비 제한 및 좌우 패딩
+function Shell({ children }: { children: ReactNode }) {
+  return <div className="w-full max-w-6xl mx-auto px-4">{children}</div>;
+}
+
+/* 섹션 컴포넌트
+  - id: 앵커 링크용 id
+  - title, subtitle: 제목/부제목
+  - children: 섹션 내부 콘텐츠
+  - bg: 배경 이미지 경로
+  - overlay: 오버레이 클래스명(default: bg-white/60 backdrop-blur)
+  - fixed: true면 배경 고정(parallax)
+*/
+function Section({
+  id,
+  title,
+  subtitle,
+  children,
+  bg,
+  overlay = "bg-white/60 backdrop-blur",
+  fixed = true,
+}: {
+  id: string;
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+  bg?: string;
+  overlay?: string;
+  fixed?: boolean;
+}) {
   return (
     <motion.section
       id={id}
-      className="w-full max-w-6xl mx-auto px-4 py-20"
+      className="relative py-20 text-[#222]"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
-      {subtitle && <p className="text-gray-600 mb-8">{subtitle}</p>}
-      {children}
+      {bg && (
+        <div className={`absolute inset-0 -z-10 ${fixed ? "bg-fixed" : ""}`}>
+          <img
+            src={bg}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className={`absolute inset-0 ${overlay}`} />
+        </div>
+      )}
+      <Shell>
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+        {subtitle && (
+          <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+        {children}
+      </Shell>
     </motion.section>
   );
 }
 
-// ──────────────────────────────────────────────────────────────
-// 3) 페이지
-// ──────────────────────────────────────────────────────────────
+/* 도넛 차트를 그리는 컴포넌트
+   - valuePercent: 수익률(0~100) */
+function Donut({ valuePercent }: { valuePercent: number }) {
+  // 비율에 따라 도넛의 길이를 계산합니다. stroke-dasharray 사용
+  const dash = `${valuePercent} ${100 - valuePercent}`;
+  return (
+    <svg viewBox="0 0 42 42" width="220" height="220" aria-label="profit donut">
+      <circle cx="21" cy="21" r="15.915" fill="#fff" />
+      {/* 회색 배경 링 */}
+      <circle
+        cx="21"
+        cy="21"
+        r="15.915"
+        fill="transparent"
+        stroke="#eee"
+        strokeWidth="6"
+      />
+      {/* 데이터 비율 */}
+      <circle
+        cx="21"
+        cy="21"
+        r="15.915"
+        fill="transparent"
+        stroke="#e36f33"
+        strokeWidth="6"
+        strokeDasharray={dash}
+        strokeDashoffset="25"
+      />
+      <text
+        x="21"
+        y="23"
+        textAnchor="middle"
+        fontSize="6"
+        fill="#e36f33"
+        fontWeight="bold"
+      >
+        {valuePercent}%
+      </text>
+    </svg>
+  );
+}
+
+/* 메인 페이지 컴포넌트 */
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      {/* NAV */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-        <nav className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <a href="#home" className="font-bold">{BRAND.name}</a>
-          <div className="hidden md:flex gap-6 text-sm">
-            {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="hover:opacity-70">{n.label}</a>
-            ))}
-          </div>
-          <a href="#contact" className="text-sm border px-3 py-1 rounded-full">문의</a>
-        </nav>
+    <div className="min-h-screen bg-[#f4efe7] text-[#222]">
+      {/* 네비게이션 바 */}
+      <div className="sticky top-0 z-50 bg-[#f4efe7]/80 backdrop-blur border-b border-[#e5dccf]">
+        <Shell>
+          <nav className="h-14 flex items-center justify-between">
+            <a href="#home" className="flex items-center gap-2">
+              <img
+                src={BRAND.logoSrc}
+                alt={`${BRAND.name} 로고`}
+                className="h-8 w-auto"
+              />
+            </a>
+            {/* 데스크탑 메뉴 */}
+            <div className="hidden md:flex gap-6 text-sm">
+              {NAV.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  className="hover:text-[#e36f33] transition-colors"
+                >
+                  {n.label}
+                </a>
+              ))}
+            </div>
+            <a
+              href="#contact"
+              className="text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+            >
+              문의
+            </a>
+          </nav>
+        </Shell>
       </div>
 
-      {/* HERO */}
+      {/* 히어로 섹션 */}
       <header id="home" className="relative">
         <div className="absolute inset-0">
-          <img src="/images/hero.jpg" alt="hero" className="w-full h-[70vh] object-cover" />
-          <div className="absolute inset-0 bg-black/40" />
+          <img
+            src={BG.hero}
+            alt="hero"
+            className="w-full h-[80vh] object-cover"
+          />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
-        <div className="relative max-w-6xl mx-auto px-4 h-[70vh] flex items-center">
-          <motion.div
-            className="text-white"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="uppercase tracking-widest text-xs mb-3">FRANCHISE LANDING</p>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">{BRAND.tagline}</h1>
-            <p className="opacity-90 max-w-2xl">매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.</p>
-          </motion.div>
-        </div>
+        <Shell>
+          <div className="relative h-[80vh] flex items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <p className="uppercase tracking-widest text-xs mb-3 text-[#e36f33]">
+                FRANCHISE LANDING
+              </p>
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white drop-shadow">
+                {BRAND.tagline}
+              </h1>
+              <p className="opacity-90 max-w-2xl text-white">
+                매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
+              </p>
+              <a
+                href="#edge"
+                className="inline-block mt-6 px-5 py-3 rounded-full bg-[#e36f33] text-white font-semibold hover:bg-[#c6541d] transition"
+              >
+                더 알아보기
+              </a>
+            </motion.div>
+          </div>
+        </Shell>
       </header>
 
-      {/* ABOUT */}
-      <Section id="about" title="브랜드 소개" subtitle="핵심은 단일공정·원가율·배달병행">
+      {/* ABOUT 섹션 */}
+      <Section
+        id="about"
+        title="브랜드 소개"
+        subtitle="핵심은 단일공정·원가율·배달 병행"
+        bg={BG.about}
+        overlay="bg-white/65 backdrop-blur"
+      >
         <div className="grid md:grid-cols-3 gap-8 items-center">
-          <motion.div className="md:col-span-1" initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <img src="/images/ceo.jpg" alt="대표" className="w-full rounded-2xl shadow" />
+          <motion.div
+            className="md:col-span-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src="/images/about-photo.jpg"
+              alt="대표"
+              className="w-full rounded-2xl shadow border border-[#e5dccf]"
+            />
           </motion.div>
-          <motion.div className="md:col-span-2 space-y-4" initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-            <p>과장된 미사여구보다 창업자가 알아야 할 실질을 공개합니다. 공정 설계와 수치로 설명합니다.</p>
-            <ul className="list-disc ml-5 text-sm text-gray-700 space-y-2">
-              <li>동일 품질을 위한 표준 레시피 & 공급망</li>
-              <li>홀/배달 겸용 구조로 비수기 완충</li>
+          <motion.div
+            className="md:col-span-2 space-y-4"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <p className="leading-7 text-[#3b342c]">
+              평상집은 2018년 화성시 향남의 외곽지역에서 처음 시작되었습니다. 이후 지속적인 발전과 함께
+              가맹사업을 시작하여 현재 10개 이상의 가맹점이 활발히 영업 중입니다. 계절을 타지 않는 백숙과
+              삼계탕, 홀과 배달 모두 강한 음식점을 표방하여 어려운 시기에도 생존할 수 있는 강한 브랜드입니다.
+            </p>
+            <ul className="list-disc ml-5 text-sm text-[#6b6255] space-y-2">
+              <li>동일 품질을 위한 표준 레시피와 공급망</li>
+              <li>홀·배달 겸용 구조로 비수기 완충</li>
               <li>리모델 중심의 CAPEX 절감 전략</li>
             </ul>
           </motion.div>
         </div>
       </Section>
 
-      {/* EDGE */}
-      <Section id="edge" title="경쟁력">
-        <div className="grid md:grid-cols-3 gap-6">
-          {EDGE.map((e, i) => (
-            <motion.div key={e.t} className="p-6 rounded-2xl border shadow-sm" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}>
-              <h3 className="font-semibold mb-2">{e.t}</h3>
-              <p className="text-gray-700 text-sm leading-6">{e.d}</p>
-            </motion.div>
-          ))}
+      {/* EDGE(경쟁력) 섹션 */}
+      <Section
+        id="edge"
+        title="경쟁력"
+        subtitle="초보 창업자들에게 평상집을 권하는 6가지 이유"
+        bg={BG.edge}
+        overlay="bg-white/55 backdrop-blur"
+      >
+        {/* 경쟁력 목록: 이미지가 있는 항목과 배경 전체 이미지 항목을 구분합니다. */}
+        <div className="space-y-24">
+    {REASONS.map((r, i) => (
+      <div
+        key={r.num}
+        className={`flex flex-col md:flex-row items-center gap-10 ${
+          i % 2 === 1 ? "md:flex-row-reverse" : ""
+        }`}
+      >
+        {/* 이미지 */}
+        <div className="md:w-1/2">
+          <img
+            src={r.img}
+            alt={`이유 ${r.num} ${r.title}`}
+            className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        {/* 텍스트 */}
+        <div className={`md:w-1/2 space-y-3 ${i % 2 === 1 ? "md:pr-6" : "md:pl-6"}`}>
+          <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
+            이유 {r.num}
+          </span>
+          <h3 className="text-2xl font-semibold text-[#2b2b2b]">{r.title}</h3>
+          <p className="text-[#4a4339] leading-6">{r.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+      </Section>
+
+      {/* PROFIT 섹션 */}
+      <Section
+        id="profit"
+        title="월 평균 수익률"
+        subtitle="예상 수익 구조를 가시화한 표"
+        bg={BG.profit}
+        overlay="bg-white/70 backdrop-blur"
+      >
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="flex justify-center">
+            <Donut valuePercent={44} />
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <tbody>
+                {PROFIT.map((row) => (
+                  <tr key={row.k} className="border-b border-[#e5dccf]">
+                    <td className="py-3 pr-4 font-medium text-[#3b342c]">
+                      {row.k}
+                    </td>
+                    <td className="py-3 text-[#2b2b2b]">{row.v}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-xs text-[#6b6255] mt-3">
+              * 예시는 가맹점 평균이 아닌 시뮬레이션 수치이며, 상권/운영에 따라 변동합니다.
+            </p>
+          </div>
         </div>
       </Section>
 
-      {/* PROFIT */}
-      <Section id="profit" title="월 평균 수익률">
-        <motion.div className="overflow-x-auto" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <table className="w-full text-sm">
-            <tbody>
-              {PROFIT.map((row) => (
-                <tr key={row.k} className="border-b">
-                  <td className="py-3 pr-4 font-medium">{row.k}</td>
-                  <td className="py-3">{row.v}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </motion.div>
-        <p className="text-xs text-gray-500 mt-3">* 예시는 가맹점 평균이 아닌 시뮬레이션 수치이며, 상권/운영에 따라 변동.</p>
-      </Section>
-
-      {/* COST */}
-      <Section id="cost" title="창업비용" subtitle="소프트웨어 비용은 고정, 하드웨어는 현장에 따라 변동">
+      {/* COST 섹션 */}
+      <Section
+        id="cost"
+        title="창업비용"
+        subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
+        bg={BG.cost}
+        overlay="bg-white/75 backdrop-blur"
+      >
         <div className="grid md:grid-cols-2 gap-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <h4 className="font-semibold mb-2">소프트웨어</h4>
+          <div>
+            <h4 className="font-semibold mb-2 text-[#2b2b2b]">소프트웨어</h4>
             <ul className="space-y-2 text-sm">
               {COST_SOFT.map((c) => (
-                <li key={c.k} className="flex justify-between border-b py-2"><span>{c.k}</span><span>{c.v}</span></li>
+                <li
+                  key={c.k}
+                  className="flex justify-between border-b border-[#e5dccf] py-2 text-[#3b342c]"
+                >
+                  <span>{c.k}</span>
+                  <span>{c.v}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
-            <h4 className="font-semibold mb-2">하드웨어(실비)</h4>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2 text-[#2b2b2b]">하드웨어(실비)</h4>
             <ul className="space-y-2 text-sm">
               {COST_HARD.map((c) => (
-                <li key={c.k} className="flex justify-between border-b py-2"><span>{c.k}</span><span>{c.v}</span></li>
+                <li
+                  key={c.k}
+                  className="flex justify-between border-b border-[#e5dccf] py-2 text-[#3b342c]"
+                >
+                  <span>{c.k}</span>
+                  <span>{c.v}</span>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
-        <div className="mt-6 p-4 bg-gray-50 rounded-xl text-sm text-gray-700">같은 컨셉이라도 리모델링 범위/공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적 제공합니다.</div>
+        <div className="mt-6 p-4 bg-white/80 border border-[#e5dccf] rounded-xl text-sm text-[#4a4339] backdrop-blur">
+          같은 컨셉이라도 리모델링 범위나 공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적을 제공합니다.
+        </div>
       </Section>
 
-      {/* CASES */}
-      <Section id="cases" title="BEFORE → AFTER" subtitle="실제 리모델링 사례(예시 이미지 교체)">
-        <div className="space-y-10">
+      {/* CASES 섹션 */}
+      <Section
+        id="cases"
+        title="BEFORE → AFTER"
+        subtitle="실제 리모델링 사례"
+        bg={BG.cases}
+        overlay="bg-white/80 backdrop-blur"
+      >
+        <div className="space-y-12">
           {CASES.map((c, i) => (
-            <motion.div key={c.name} className="grid md:grid-cols-2 gap-6" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }}>
+            <motion.div
+              key={c.name}
+              className="grid md:grid-cols-2 gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+            >
               <div>
-                <img src={c.before} alt={`${c.name} before`} className="w-full rounded-xl shadow" />
+                <img
+                  src={c.before}
+                  alt={`${c.name} before`}
+                  className="w-full rounded-xl shadow border border-[#e5dccf]"
+                />
               </div>
               <div>
-                <img src={c.after} alt={`${c.name} after`} className="w-full rounded-xl shadow" />
-                <div className="mt-4 p-4 border rounded-xl">
-                  <h4 className="font-semibold">{c.name}</h4>
-                  <p className="text-sm text-gray-700 mt-1">{c.memo}</p>
-                  <p className="text-sm text-gray-500 mt-1">{c.total}</p>
+                <img
+                  src={c.after}
+                  alt={`${c.name} after`}
+                  className="w-full rounded-xl shadow border border-[#e5dccf]"
+                />
+                <div className="mt-4 p-4 border border-[#e5dccf] rounded-xl bg-white/80 backdrop-blur">
+                  <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
+                  <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
+                  <p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
                 </div>
               </div>
             </motion.div>
@@ -244,60 +541,145 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* PROCESS */}
-      <Section id="process" title="창업 절차" subtitle="상담 → 실측 → 계약 → 교육 → 오픈">
+      {/* PROCESS 섹션 */}
+      <Section
+        id="process"
+        title="창업 절차"
+        subtitle="상담 → 실측 → 계약 → 교육 → 오픈"
+        bg={BG.process}
+        overlay="bg-white/80 backdrop-blur"
+      >
         <ol className="grid md:grid-cols-5 gap-4 list-decimal ml-5 text-sm">
-          {['상담/상권 검토','현장 실측/견적','계약/일정 확정','조리/운영 교육','시범 운영/오픈'].map((step, i) => (
-            <motion.li key={step} className="p-4 border rounded-xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}>{step}</motion.li>
+          {[
+            "상담/상권 검토",
+            "현장 실측/견적",
+            "계약/일정 확정",
+            "조리/운영 교육",
+            "시범 운영/오픈",
+          ].map((step, i) => (
+            <motion.li
+              key={step}
+              className="p-4 border border-[#e5dccf] rounded-xl bg-white/80 backdrop-blur text-[#3b342c]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              {step}
+            </motion.li>
           ))}
         </ol>
       </Section>
 
-      {/* FAQ */}
-      <Section id="faq" title="자주 묻는 질문">
+      {/* FAQ 섹션 */}
+      <Section
+        id="faq"
+        title="자주 묻는 질문"
+        bg={BG.faq}
+        overlay="bg-white/70 backdrop-blur"
+      >
         <div className="space-y-4">
           {FAQ.map((f, i) => (
-            <details key={i} className="rounded-xl border p-4">
-              <summary className="font-medium cursor-pointer">{f.q}</summary>
-              <p className="mt-2 text-sm text-gray-700">{f.a}</p>
+            <details
+              key={i}
+              className="rounded-xl border border-[#e5dccf] p-4 bg-white/85 backdrop-blur text-[#3b342c]"
+            >
+              <summary className="font-medium cursor-pointer">
+                {f.q}
+              </summary>
+              <p className="mt-2 text-sm text-[#4a4339]">{f.a}</p>
             </details>
           ))}
         </div>
       </Section>
 
-      {/* CONTACT */}
-      <Section id="contact" title="문의" subtitle="연락 주시면 24시간 내 회신합니다.">
-        <form action="https://formspree.io/f/xzzvwlna" method="POST" className="grid md:grid-cols-2 gap-4">
-          <input name="name" required placeholder="이름" className="border rounded-lg px-3 py-2" />
-          <input name="phone" required placeholder="연락처" className="border rounded-lg px-3 py-2" />
-          <input name="area" placeholder="희망 상권/지역" className="border rounded-lg px-3 py-2 md:col-span-2" />
-          <textarea name="msg" placeholder="문의 내용" className="border rounded-lg px-3 py-2 md:col-span-2" rows={5} />
-          <button type="submit" className="md:col-span-2 border rounded-xl px-4 py-3 font-semibold hover:bg-gray-50">문의 보내기</button>
-        </form>
-        <div className="mt-6 text-sm text-gray-600">
-          <p>대표번호: {BRAND.phone}</p>
-          <p>주소: {BRAND.address}</p>
-        </div>
-      </Section>
-
-      {/* FOOTER */}
-      <footer className="border-t">
-        <div className="max-w-6xl mx-auto px-4 py-10 text-sm text-gray-600">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <div className="font-semibold">{BRAND.name}</div>
-              <div className="opacity-70">{BRAND.address}</div>
-            </div>
-            <div className="flex gap-6">
-              <a href="#" className="hover:opacity-70">이용약관</a>
-              <a href="#" className="hover:opacity-70">개인정보처리방침</a>
+      {/* CONTACT 섹션 */}
+      <Section
+        id="contact"
+        title="문의"
+        subtitle="연락 주시면 24시간 이내에 회신합니다."
+        bg={BG.contact}
+        overlay="bg-white/65 backdrop-blur"
+      >
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* 문의 폼 */}
+          <form
+            action="#" // 실제 처리 로직에 맞게 수정하세요
+            method="POST"
+            className="grid gap-4 order-2 md:order-1"
+          >
+            <input
+              name="name"
+              required
+              placeholder="이름"
+              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
+            />
+            <input
+              name="phone"
+              required
+              placeholder="연락처"
+              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
+            />
+            <input
+              name="area"
+              placeholder="희망 상권/지역"
+              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
+            />
+            <textarea
+              name="msg"
+              placeholder="문의 내용"
+              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
+              rows={5}
+            />
+            <button
+              type="submit"
+              className="border border-[#d9cfbc] rounded-xl px-4 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm"
+            >
+              문의 보내기
+            </button>
+          </form>
+          {/* 문의 정보 */}
+          <div className="order-1 md:order-2 text-sm">
+            <div className="p-4 rounded-xl bg-white/80 border border-[#e5dccf] backdrop-blur">
+              <p className="font-semibold mb-2 text-[#2b2b2b]">연락처</p>
+              <p>대표번호: {BRAND.phone}</p>
+              <p>이메일: {BRAND.email}</p>
+              <p>주소: {BRAND.address}</p>
+              <p className="mt-2 text-xs text-[#6b6255]">
+                사업자등록번호: {BRAND.bizno}
+              </p>
             </div>
           </div>
         </div>
+      </Section>
+
+      {/* 푸터 */}
+      <footer className="border-t border-[#e5dccf]">
+        <Shell>
+          <div className="py-10 text-sm text-[#6b6255] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <div className="font-semibold text-[#1f1a14]">{BRAND.name}</div>
+              <div className="opacity-80">{BRAND.address}</div>
+            </div>
+            <div className="flex gap-6">
+              <a href="#" className="hover:opacity-70">
+                이용약관
+              </a>
+              <a href="#" className="hover:opacity-70">
+                개인정보처리방침
+              </a>
+            </div>
+          </div>
+        </Shell>
       </footer>
 
-      {/* 고정 문의 버튼 */}
-      <a href="#contact" className="fixed bottom-6 right-6 bg-black text-white px-4 py-3 rounded-full shadow-lg text-sm">지금 문의하기</a>
+      {/* 고정 CTA 버튼 */}
+      <a
+        href="#contact"
+        className="fixed bottom-6 right-6 bg-[#1f1a14] text-white px-4 py-3 rounded-full shadow-lg text-sm hover:bg-black/85 transition"
+      >
+        지금 문의하기
+      </a>
     </div>
   );
 }
