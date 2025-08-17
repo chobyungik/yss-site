@@ -163,7 +163,7 @@ function Section({
   bg,
   // 기본적으로 오버레이를 사용하지 않도록 공백 문자열을 기본값으로 설정합니다.
   overlay = "",
-  fixed = true,
+  fixed = false,
   titleClass = "",
   textClass = "",
 }: {
@@ -482,6 +482,8 @@ export default function Page() {
         subtitle="예상 수익 구조를 가시화한 표"
         bg={BG.profit}
         overlay=""
+        titleClass="text-[#e36f33]"
+        textClass="text-[#e36f33]"
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
@@ -516,6 +518,8 @@ export default function Page() {
         subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
         bg={BG.cost}
         overlay=""
+        titleClass="text-[#0f5132]"
+        textClass="text-[#0f5132]"
       >
         <div className="grid md:grid-cols-2 gap-8">
           <div>
@@ -559,6 +563,8 @@ export default function Page() {
         subtitle="실제 리모델링 사례"
         bg={BG.cases}
         overlay=""
+        titleClass="text-white"
+        textClass="text-white"
       >
         <div className="space-y-12">
           {CASES.map((c, i) => (
@@ -600,6 +606,8 @@ export default function Page() {
         title="창업 절차"
         bg={BG.process}
         overlay=""
+        titleClass="text-[#f97316]"
+        textClass="text-[#f97316]"
       >
         <ol className="flex flex-wrap gap-5">
           {[
