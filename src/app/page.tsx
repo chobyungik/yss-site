@@ -293,26 +293,38 @@ export default function Page() {
         <Shell>
           <div className="relative h-[80vh] flex items-center">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="uppercase tracking-widest text-xs mb-3 text-[#e36f33]">
-                성공창업의 동반자
-              </p>
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white drop-shadow">
-                {BRAND.tagline}
-              </h1>
-              <p className="opacity-90 max-w-2xl text-white">
-                매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
-              </p>
-              <a
-                href="#edge"
-                className="inline-block mt-6 px-5 py-3 rounded-full bg-[#e36f33] text-white font-semibold hover:bg-[#c6541d] transition"
-              >
-                더 알아보기
-              </a>
-            </motion.div>
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  {/* ↑ 주황 라벨: 크기 키움 */}
+  <p className="uppercase tracking-widest text-sm md:text-base mb-4 text-[#e36f33]">
+    성공창업의 동반자
+  </p>
+
+  {/* 메인 타이틀: 전체 더 크게 + '여상수'만 주황/더 크게 */}
+  <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-white drop-shadow">
+    할머니의 손맛 그대로, 안동식 양념 소갈비를
+    <br className="hidden md:block" />
+    트렌디하게 즐기는{" "}
+    <span className="text-[#e36f33] md:text-[1.15em] align-baseline">
+      여상수
+    </span>
+  </h1>
+
+  {/* 설명 문구: 빨간색 + 약간 크게 */}
+  <p className="max-w-3xl text-base md:text-lg text-red-500">
+    매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
+  </p>
+
+  <a
+    href="#edge"
+    className="inline-block mt-6 px-5 py-3 rounded-full bg-[#e36f33] text-white font-semibold hover:bg-[#c6541d] transition"
+  >
+    더 알아보기
+  </a>
+</motion.div>
+
           </div>
         </Shell>
       </header>
