@@ -42,7 +42,12 @@ const REASONS = [
   {
     num: "01",
     title: "1인 운영 구조",
-    desc: "단일공정 · 동선 최적화로 주방 1인 운영이 가능합니다.",
+    desc: "양념갈비살, 양념간받이살, 한우대창, 청정특양? 
+여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만 다를 뿐
+사실상 단일메뉴인 셈입니다.
+공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
+여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
+완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.",
     img: "/images/reason1.jpg",
   },
   {
@@ -374,7 +379,7 @@ export default function Page() {
       <Section
         id="edge"
         title="경쟁력"
-        subtitle="초보 창업자들에게 평상집을 권하는 5가지 이유"
+        subtitle="초보 창업자들에게 여상수를 권하는 5가지 이유"
         bg={BG.edge}
         overlay="bg-white/55 backdrop-blur"
       >
