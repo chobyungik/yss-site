@@ -421,7 +421,7 @@ export default function Page() {
                     <td className="py-3 pr-4 font-medium text-[#3b342c]">
                       {row.k}
                     </td>
-                    <td className="py-3 pl-4 text-right tabular-nums whitespace-nowrap text-[#2b2b2b]"">{row.v}</td>
+                    <td className="py-3 pl-4 text-right tabular-nums whitespace-nowrap text-[#2b2b2b]">{row.v}</td>
                   </tr>
                 ))}
               </tbody>
