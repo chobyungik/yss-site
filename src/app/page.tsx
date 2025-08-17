@@ -167,7 +167,7 @@ function Section({
   id: string;
   title: string;
   subtitle?: string;
-  children: ReactNode;
+  children?: ReactNode;   //
   bg?: string;
   overlay?: string;
   fixed?: boolean;
