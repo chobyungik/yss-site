@@ -404,7 +404,7 @@ export default function Page() {
         title="브랜드 소개"
         subtitle="핵심은 단일공정·원가율·빠른 회전율"
         bg={BG.about}
-        "
+        overlay = "bg-white/60 backdrop-blur""
       >
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <motion.div
