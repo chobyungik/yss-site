@@ -620,12 +620,12 @@ export default function Page() {
           ].map((step, i) => (
             <li
               key={step}
-              className="rounded-2xl border border-[#e5dccf] bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
+              className="rounded-2xl border border-[#fff] bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
             >
-              <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
+              <span className="grid place-items-center w-8 h-8 rounded-full bg-[#fff] text-white text-sm font-bold shrink-0">
                 {i + 1}
               </span>
-              <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
+              <span className="text-base md:text-lg font-semibold text-[#fff] whitespace-nowrap">
                 {step}
               </span>
             </li>
