@@ -38,7 +38,7 @@ const REASONS = [
   {
     num: "01",
     title: "1인 운영 구조",
-    desc: `양념갈비살, 양념간받이살, 한우대창, 청정특양 등.
+    desc: `양념갈비살, 양념갈반입살, 한우대창, 청정특양 등.
 여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만 다를 뿐 사실상 단일 메뉴인 셈입니다.
 공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
 여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
@@ -167,7 +167,7 @@ function Section({
   id: string;
   title: string;
   subtitle?: string;
-  children?: ReactNode;   //
+  children: ReactNode;
   bg?: string;
   overlay?: string;
   fixed?: boolean;
@@ -248,7 +248,7 @@ function Donut({ valuePercent }: { valuePercent: number }) {
 function ReasonBand({
   r,
   flip = false,
-  header, // ⬅ 추가
+  header,
 }: {
   r: {
     num: string;
@@ -259,31 +259,44 @@ function ReasonBand({
     overlay?: string;
   };
   flip?: boolean;
-  header?: { title: string; subtitle?: string }; // ⬅ 추가
+  header?: { title: string; subtitle?: string };
 }) {
   return (
     <section className="relative py-20 text-[#222]">
+      {/* 배경 이미지 및 오버레이 */}
       {r.bg && (
-        <div className="absolute inset-0 -z-10">
-          <img src={r.bg} alt="" className="w-full h-full object-cover" />
-          <div className={`absolute inset-0 ${r.overlay ?? "bg-white/60 backdrop-blur"}`} />
-        </div>
+        <>
+          <img
+            src={r.bg}
+            alt=""
+            className="absolute inset-0 z-0 w-full h-full object-cover"
+          />
+          <div
+            className={`absolute inset-0 z-10 pointer-events-none ${
+              r.overlay ?? "bg-white/60 backdrop-blur"
+            }`}
+          />
+        </>
       )}
-
       <Shell>
-        {/* ⬇️ 처음 이유에서만 제목/부제목을 같이 출력 */}
+        {/* 헤더(제목/부제목)를 첫 번째 이유에서만 출력 */}
         {header && (
-          <>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">{header.title}</h2>
+          <div className="relative z-20 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              {header.title}
+            </h2>
             {header.subtitle && (
-              <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
+              <p className="text-[#6b6255] max-w-2xl leading-relaxed">
                 {header.subtitle}
               </p>
             )}
-          </>
+          </div>
         )}
-
-        <div className={`flex flex-col md:flex-row items-center gap-10 ${flip ? "md:flex-row-reverse" : ""}`}>
+        <div
+          className={`relative z-20 flex flex-col md:flex-row items-center gap-10 ${
+            flip ? "md:flex-row-reverse" : ""
+          }`}
+        >
           {r.img && (
             <div className="md:w-1/2">
               <img
@@ -295,7 +308,9 @@ function ReasonBand({
               />
             </div>
           )}
-          <div className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}>
+          <div
+            className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}
+          >
             <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
               이유 {r.num}
             </span>
@@ -426,24 +441,24 @@ export default function Page() {
         </div>
       </Section>
 
-     {/* EDGE 섹션(제목+첫 카드 붙이기) */}
-<div id="edge" className="block -mt-20 pt-20" />
-
-{REASONS.map((r, i) => (
-  <ReasonBand
-    key={r.num}
-    r={r}
-    flip={i % 2 === 1}
-    header={
-      i === 0
-        ? {
-            title: "경쟁력",
-            subtitle: "초보 창업자들에게 여상수를 권하는 5가지 이유",
+      {/* EDGE 섹션: 별도의 섹션 대신 첫 번째 ReasonBand에 제목/부제목을 포함하여 출력합니다. */}
+      {/* 앵커 역할을 위한 div를 추가합니다. */}
+      <div id="edge" className="block -mt-20 pt-20" />
+      {REASONS.map((r, i) => (
+        <ReasonBand
+          key={r.num}
+          r={r}
+          flip={i % 2 === 1}
+          header={
+            i === 0
+              ? {
+                  title: "경쟁력",
+                  subtitle: "초보 창업자들에게 여상수를 권하는 5가지 이유",
+                }
+              : undefined
           }
-        : undefined
-    }
-  />
-))}
+        />
+      ))}
 
       {/* PROFIT 섹션 */}
       <Section
