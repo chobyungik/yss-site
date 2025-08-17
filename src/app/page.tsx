@@ -297,8 +297,8 @@ export default function Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="uppercase tracking-widest text-xs mb-3 text-[#e36f33]">
-                FRANCHISE LANDING
+              <p className="uppercase tracking-widest text-m mb-3 text-[#e36f33]">
+                성공창업의 동반자
               </p>
               <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white drop-shadow">
                 {BRAND.tagline}
