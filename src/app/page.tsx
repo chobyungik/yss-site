@@ -161,8 +161,7 @@ function Section({
   subtitle,
   children,
   bg,
-  // 기본적으로 오버레이를 사용하지 않도록 공백 문자열을 기본값으로 설정합니다.
-  overlay = "",
+  overlay, // 
   fixed = true,
 }: {
   id: string;
@@ -176,14 +175,14 @@ function Section({
   return (
     <motion.section
       id={id}
-      className="relative py-20 text-[#222]"
+      className="relative isolate py-20 text-[#222]"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
     >
       {bg && (
-        <div className={`absolute inset-0 -z-10 ${fixed ? "bg-fixed" : ""}`}>
+        <div className={`absolute inset-0 z-0 ${fixed ? "bg-fixed" : ""}`}>
           <img
             src={bg}
             alt=""
@@ -191,24 +190,25 @@ function Section({
             loading="lazy"
             decoding="async"
           />
-          {/* 오버레이가 지정된 경우에만 렌더링합니다 */}
-          {overlay && overlay.trim() !== "" && (
-            <div className={`absolute inset-0 ${overlay}`} />
-          )}
+          {overlay ? <div className={`absolute inset-0 ${overlay}`} /> : null}
         </div>
       )}
-      <Shell>
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
-        {subtitle && (
-          <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-        {children}
-      </Shell>
+
+      <div className="relative z-10">
+        <Shell>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
+          {subtitle && (
+            <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
+              {subtitle}
+            </p>
+          )}
+          {children}
+        </Shell>
+      </div>
     </motion.section>
   );
 }
+
 
 /* 도넛 차트를 그리는 컴포넌트 */
 function Donut({ valuePercent }: { valuePercent: number }) {
