@@ -250,12 +250,12 @@ export default function Page() {
       {/* 네비게이션 바 */}
       <div className="sticky top-0 z-50 bg-[#f4efe7]/80 backdrop-blur border-b border-[#e5dccf]">
         <Shell>
-          <nav className="h-14 flex items-center justify-between">
+          <nav className="h-16 md:h-20 flex items-center justify-between">
             <a href="#home" className="flex items-center gap-2">
               <img
                 src={BRAND.logoSrc}
                 alt={`${BRAND.name} 로고`}
-                className="h-8 w-auto"
+                className="h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
               />
             </a>
             {/* 데스크탑 메뉴 */}
