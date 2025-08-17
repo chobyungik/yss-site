@@ -46,7 +46,7 @@ const REASONS = [
     img: "/images/reason1.jpg",
     bg: "/images/reason1-bg.jpg",
     overlay: "",
-    textClass: "text-white drop-shadow-md",
+    textclass: "text-white drop-shadow-md",
   },
   {
     num: "02",
@@ -162,8 +162,9 @@ function Section({
   subtitle,
   children,
   bg,
-  overlay, // 
+  overlay = "",
   fixed = true,
+  textClass = "text-[#222]", // ✅ 기본은 검정
 }: {
   id: string;
   title: string;
@@ -172,43 +173,39 @@ function Section({
   bg?: string;
   overlay?: string;
   fixed?: boolean;
+  textClass?: string;
 }) {
   return (
     <motion.section
       id={id}
-      className="relative isolate py-20 text-[#222]"
+      className={`relative py-20 ${textClass}`} // ✅ 여기서 textClass를 반영
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
     >
       {bg && (
-        <div className={`absolute inset-0 z-0 ${fixed ? "bg-fixed" : ""}`}>
-          <img
-            src={bg}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          {overlay ? <div className={`absolute inset-0 ${overlay}`} /> : null}
+        <div
+          className={`absolute inset-0 -z-10 ${fixed ? "bg-fixed" : ""}`}
+          style={{
+            backgroundImage: `url(${bg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {overlay && <div className={`absolute inset-0 ${overlay}`} />}
         </div>
       )}
 
       <div className="relative z-10">
-        <Shell>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">{title}</h2>
-          {subtitle && (
-            <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
-              {subtitle}
-            </p>
-          )}
-          {children}
-        </Shell>
+        {subtitle && <p className="mb-4 text-lg">{subtitle}</p>}
+        <h2 className="text-3xl font-bold mb-6">{title}</h2>
+        {children}
       </div>
     </motion.section>
   );
 }
+
 
 
 /* 도넛 차트를 그리는 컴포넌트 */
