@@ -526,7 +526,7 @@ export default function Page() {
         overlay="bg-white/80 backdrop-blur"
       >
        {/* PROCESS 섹션 내부 교체 */}
-<ol className="grid md:grid-cols-5 gap-5 list-none p-0">
+<ol className="flex flex-wrap gap-5">
   {[
     "상담/상권 검토",
     "현장 실측/견적",
@@ -536,24 +536,19 @@ export default function Page() {
   ].map((step, i) => (
     <li
       key={step}
-      className="relative flex items-center gap-4 rounded-2xl border border-[#e5dccf] bg-white/85 backdrop-blur px-5 py-6 shadow-sm"
+      className="rounded-2xl border border-[#e5dccf] bg-white/85 backdrop-blur px-6 py-5 shadow-sm
+                 flex items-center gap-3 min-w-[300px]"
     >
-      {/* 숫자 배지(그림처럼) */}
-      <span
-        className="grid place-items-center w-11 h-11 rounded-full bg-[#e36f33] text-white
-                   font-extrabold text-lg shadow-md select-none"
-        aria-hidden
-      >
+      <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
         {i + 1}
       </span>
-
-      {/* 텍스트(크고 두껍게) */}
-      <span className="text-base md:text-lg font-semibold text-[#1f1a14]">
+      <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
         {step}
       </span>
     </li>
   ))}
 </ol>
+
 
       </Section>
 
