@@ -46,7 +46,6 @@ const REASONS = [
     img: "/images/reason1.jpg",
     bg: "/images/reason1-bg.jpg",
     overlay: "",
-    textclass: "text-white drop-shadow-md",
   },
   {
     num: "02",
