@@ -255,7 +255,7 @@ export default function Page() {
               <img
                 src={BRAND.logoSrc}
                 alt={`${BRAND.name} 로고`}
-                className="h-10 md:h-12 lg:h-14 w-auto object-contain shrink-0"
+                className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
               />
             </a>
             {/* 데스크탑 메뉴 */}
