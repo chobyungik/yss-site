@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 // 브랜드 정보 및 네비게이션
 const BRAND = {
   name: "여상수",
-  tagline: "할머니의 손맛 그대로, 안동식 양념 소갈비를 트렌디하게 즐기는",
+  tagline: "할머니의 손맛 그대로, 안동식 양념 소갈비를 트렌디하게 즐기는 여상수",
   phone: "010-8230-0800",
   address: "경기도 안양시 삼덕로 80-1, 1층 여상수",
   bizno: "181-41-01276",
