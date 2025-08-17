@@ -45,7 +45,7 @@ const REASONS = [
 완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,
     img: "/images/reason1.jpg",
     bg: "/images/reason1-bg.jpg",
-    overlay: "bg-white/60",
+    overlay: "",
   },
   {
     num: "02",
@@ -53,7 +53,7 @@ const REASONS = [
     desc: `양념 + 소고기 중심으로 적은 테이블에서도 안정적인 매출을 기대할 수 있습니다.`,
     img: "/images/reason2.jpg",
     bg: "/images/reason2-bg.jpg",
-    overlay: "bg-white/60",
+    overlay: "",
   },
   {
     num: "03",
@@ -61,7 +61,7 @@ const REASONS = [
     desc: `핵심 식자재 직공급으로 목표 원가율을 35% 내외로 유지합니다.`,
     img: "/images/reason3.jpg",
     bg: "/images/reason3-bg.jpg",
-    overlay: "bg-white/60",
+    overlay: "",
   },
   {
     num: "04",
@@ -69,7 +69,7 @@ const REASONS = [
     desc: `기존 매장 전환 시 리모델링을 통해 파격적으로 금액 절감가능합니다.`,
     img: "/images/reason4.jpg",
     bg: "/images/reason4-bg.jpg",
-    overlay: "bg-white/60",
+    overlay: "",
   },
   {
     num: "05",
@@ -77,7 +77,7 @@ const REASONS = [
     desc: `초보자도 가능한 조리·서비스 매뉴얼을 제공합니다.`,
     img: "/images/reason5.jpg",
     bg: "/images/reason5-bg.jpg",
-    overlay: "bg-white/60",
+    overlay: "",
   },
 ];
 
@@ -161,7 +161,8 @@ function Section({
   subtitle,
   children,
   bg,
-  overlay = "bg-white/60 backdrop-blur",
+  // 기본적으로 오버레이를 사용하지 않도록 공백 문자열을 기본값으로 설정합니다.
+  overlay = "",
   fixed = true,
 }: {
   id: string;
@@ -190,7 +191,10 @@ function Section({
             loading="lazy"
             decoding="async"
           />
-          <div className={`absolute inset-0 ${overlay}`} />
+          {/* 오버레이가 지정된 경우에만 렌더링합니다 */}
+          {overlay && overlay.trim() !== "" && (
+            <div className={`absolute inset-0 ${overlay}`} />
+          )}
         </div>
       )}
       <Shell>
@@ -264,6 +268,7 @@ function ReasonBand({
   return (
     <section className="relative py-20 text-[#222]">
       {/* 배경 이미지 및 오버레이 */}
+      {/* 배경 이미지 및 오버레이 */}
       {r.bg && (
         <>
           <img
@@ -271,11 +276,12 @@ function ReasonBand({
             alt=""
             className="absolute inset-0 z-0 w-full h-full object-cover"
           />
-          <div
-            className={`absolute inset-0 z-10 pointer-events-none ${
-              r.overlay ?? "bg-white/60 backdrop-blur"
-            }`}
-          />
+          {/* 오버레이가 지정되어 있을 때만 렌더링 */}
+          {r.overlay && r.overlay.trim() !== "" && (
+            <div
+              className={`absolute inset-0 z-10 pointer-events-none ${r.overlay}`}
+            />
+          )}
         </>
       )}
       <Shell>
@@ -367,7 +373,7 @@ export default function Page() {
             alt="hero"
             className="w-full h-[80vh] object-cover"
           />
-          <div className="absolute inset-0 bg-black/35" />
+          {/* 오버레이를 제거하여 배경 사진의 원색을 그대로 보여줍니다 */}
         </div>
         <Shell>
           <div className="relative h-[80vh] flex items-center">
@@ -404,7 +410,7 @@ export default function Page() {
         title="브랜드 소개"
         subtitle="핵심은 단일공정·원가율·빠른 회전율"
         bg={BG.about}
-        overlay="bg-white/65 backdrop-blur"
+        overlay=""
       >
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <motion.div
@@ -466,7 +472,7 @@ export default function Page() {
         title="월 평균 수익률"
         subtitle="예상 수익 구조를 가시화한 표"
         bg={BG.profit}
-        overlay="bg-white/70 backdrop-blur"
+        overlay=""
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
@@ -500,7 +506,7 @@ export default function Page() {
         title="창업비용"
         subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
         bg={BG.cost}
-        overlay="bg-white/75 backdrop-blur"
+        overlay=""
       >
         <div className="grid md:grid-cols-2 gap-8">
           <div>
@@ -543,7 +549,7 @@ export default function Page() {
         title="BEFORE → AFTER"
         subtitle="실제 리모델링 사례"
         bg={BG.cases}
-        overlay="bg-white/80 backdrop-blur"
+        overlay=""
       >
         <div className="space-y-12">
           {CASES.map((c, i) => (
@@ -584,7 +590,7 @@ export default function Page() {
         id="process"
         title="창업 절차"
         bg={BG.process}
-        overlay="bg-white/80 backdrop-blur"
+        overlay=""
       >
         <ol className="flex flex-wrap gap-5">
           {[
@@ -615,7 +621,7 @@ export default function Page() {
         title="문의"
         subtitle="연락 주시면 24시간 이내에 회신합니다."
         bg={BG.contact}
-        overlay="bg-white/65 backdrop-blur"
+        overlay=""
       >
         <form
           action="https://formspree.io/f/xzzvwlna"
