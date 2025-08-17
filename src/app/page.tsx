@@ -556,14 +556,9 @@ export default function Page() {
   bg={BG.contact}
   overlay="bg-white/65 backdrop-blur"
 >
-  {/* ⬇ 기존 grid/order 제거하고, 폼 ↑ / 연락처 ↓ 구조로 변경 */}
-  <div className="space-y-8">
-    {/* 폼: 가운데 놓되 가로로 쭉 길게 */}
-    <form
-      action="#"
-      method="POST"
-      className="grid gap-4 max-w-3xl w-full mx-auto"
-    >
+  {/* 폼: 전체 폭 + 데스크톱에서 가로 3분할 */}
+  <form action="#" method="POST" className="grid gap-4 w-full">
+    <div className="grid md:grid-cols-3 gap-4">
       <input
         name="name"
         required
@@ -581,55 +576,46 @@ export default function Page() {
         placeholder="희망 상권/지역"
         className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
       />
-      <textarea
-        name="msg"
-        placeholder="문의 내용"
-        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
-        rows={5}
-      />
+    </div>
+
+    <textarea
+      name="msg"
+      placeholder="문의 내용"
+      className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+      rows={6}
+    />
+
+    <div className="flex justify-end">
       <button
         type="submit"
-        className="border border-[#d9cfbc] rounded-xl px-4 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm w-full md:w-auto"
+        className="border border-[#d9cfbc] rounded-xl px-6 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm w-full md:w-auto"
       >
         문의 보내기
       </button>
-    </form>
-
-    {/* 연락처: 맨 아래 + 가운데 정렬 고정 */}
-    <div className="text-sm">
-      <div className="p-5 rounded-xl bg-white/80 border border-[#e5dccf] backdrop-blur max-w-xl mx-auto text-center">
-        <p className="font-semibold mb-2 text-[#2b2b2b]">연락처</p>
-        <p>대표번호: {BRAND.phone}</p>
-        <p>이메일: {BRAND.email}</p>
-        <p>주소: {BRAND.address}</p>
-        <p className="mt-2 text-xs text-[#6b6255]">
-          사업자등록번호: {BRAND.bizno}
-        </p>
-      </div>
     </div>
-  </div>
+  </form>
 </Section>
 
 
+
       {/* 푸터 */}
-      <footer className="border-t border-[#e5dccf]">
-        <Shell>
-          <div className="py-10 text-sm text-[#6b6255] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <div className="font-semibold text-[#1f1a14]">{BRAND.name}</div>
-              <div className="opacity-80">{BRAND.address}</div>
-            </div>
-            <div className="flex gap-6">
-              <a href="#" className="hover:opacity-70">
-                이용약관
-              </a>
-              <a href="#" className="hover:opacity-70">
-                개인정보처리방침
-              </a>
-            </div>
-          </div>
-        </Shell>
-      </footer>
+     <footer className="border-t border-[#e5dccf]">
+  <Shell>
+    <div className="py-10 text-sm text-[#6b6255] flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+      <div>
+        <div className="font-semibold text-[#1f1a14]">{BRAND.name}</div>
+        <div className="opacity-80">{BRAND.address}</div>
+        <div className="opacity-80 mt-1">대표번호: {BRAND.phone}</div>
+        <div className="opacity-80">이메일: {BRAND.email}</div>
+        <div className="opacity-80 text-xs">사업자등록번호: {BRAND.bizno}</div>
+      </div>
+      <div className="flex gap-6">
+        <a href="#" className="hover:opacity-70">이용약관</a>
+        <a href="#" className="hover:opacity-70">개인정보처리방침</a>
+      </div>
+    </div>
+  </Shell>
+</footer>
 
       {/* 고정 CTA 버튼 */}
       <a
