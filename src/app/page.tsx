@@ -163,7 +163,7 @@ function Section({
   bg,
   overlay = "",
   fixed = true,
-  textClass = "text-[#222]", // ✅ 기본은 검정
+  textClass = "text-[#222]", // 기본 글씨색 (검정)
 }: {
   id: string;
   title: string;
@@ -177,7 +177,7 @@ function Section({
   return (
     <motion.section
       id={id}
-      className={`relative py-20 ${textClass}`} // ✅ 여기서 textClass를 반영
+      className={`relative py-20 ${textClass}`} // ✅ 여기 textClass 반영
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -192,6 +192,7 @@ function Section({
             backgroundPosition: "center",
           }}
         >
+          {/* ✅ overlay는 투명도 있는 색만 써야 배경 안 가려짐 */}
           {overlay && <div className={`absolute inset-0 ${overlay}`} />}
         </div>
       )}
@@ -204,6 +205,7 @@ function Section({
     </motion.section>
   );
 }
+
 
 
 
