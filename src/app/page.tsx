@@ -318,7 +318,7 @@ export default function Page() {
     href="#edge"
     className="inline-block mt-6 px-5 py-3 rounded-full bg-[#e36f33] text-white font-semibold hover:bg-[#c6541d] transition"
   >
-    더 알아보기
+    초보자들에게 여상수를 추천하는 이유
   </a>
 </motion.div>
 
