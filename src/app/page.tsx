@@ -426,21 +426,24 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* EDGE 섹션: 제목/부제목만 출력, 이유 목록은 ReasonBand로 개별 렌더링 */}
-      <Section
-        id="edge"
-        title="경쟁력"
-        subtitle="초보 창업자들에게 여상수를 권하는 5가지 이유"
-        overlay=""
-        fixed={false}
-      >
-        {/* 빈 컨테이너로 남겨 둡니다. ReasonBand는 아래에서 별도로 렌더링됩니다. */}
-      </Section>
+     {/* EDGE 섹션(제목+첫 카드 붙이기) */}
+<div id="edge" className="block -mt-20 pt-20" />
 
-      {/* 개별 이유를 배경과 함께 출력 */}
-      {REASONS.map((r, i) => (
-        <ReasonBand key={r.num} r={r} flip={i % 2 === 1} />
-      ))}
+{REASONS.map((r, i) => (
+  <ReasonBand
+    key={r.num}
+    r={r}
+    flip={i % 2 === 1}
+    header={
+      i === 0
+        ? {
+            title: "경쟁력",
+            subtitle: "초보 창업자들에게 여상수를 권하는 5가지 이유",
+          }
+        : undefined
+    }
+  />
+))}
 
       {/* PROFIT 섹션 */}
       <Section
