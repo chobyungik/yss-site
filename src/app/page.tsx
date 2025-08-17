@@ -586,33 +586,32 @@ export default function Page() {
 
       {/* PROCESS 섹션 */}
       <Section
-        id="process"
-        title="창업 절차"
-        bg={BG.process}
-        overlay=""
+  id="process"
+  title="창업 절차"
+  bg={BG.process} // ✅ 배경이미지 정상 반영
+>
+  <ol className="flex flex-wrap gap-5">
+    {[
+      "상담/상권 검토",
+      "현장 실측/견적",
+      "계약/일정 확정",
+      "조리/운영 교육",
+      "시범 운영/오픈",
+    ].map((step, i) => (
+      <li
+        key={step}
+        className="rounded-2xl border border-[#e5dccf] !bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
       >
-        <ol className="flex flex-wrap gap-5">
-          {[
-            "상담/상권 검토",
-            "현장 실측/견적",
-            "계약/일정 확정",
-            "조리/운영 교육",
-            "시범 운영/오픈",
-          ].map((step, i) => (
-            <li
-              key={step}
-              className="rounded-2xl border border-[#e5dccf] bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
-            >
-              <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
-                {i + 1}
-              </span>
-              <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
-                {step}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </Section>
+        <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
+          {i + 1}
+        </span>
+        <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
+          {step}
+        </span>
+      </li>
+    ))}
+  </ol>
+</Section>
 
       {/* CONTACT 섹션 */}
       <Section
