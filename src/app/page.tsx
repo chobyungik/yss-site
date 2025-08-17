@@ -214,7 +214,7 @@ function Section({
 function Donut({ valuePercent }: { valuePercent: number }) {
   const dash = `${valuePercent} ${100 - valuePercent}`;
   return (
-    <svg viewBox="0 0 42 42" width="220" height="220" aria-label="profit donut">
+    <svg viewBox="0 0 42 42" width="400" height="400" aria-label="profit donut">
       <circle cx="21" cy="21" r="15.915" fill="#fff" />
       <circle
         cx="21"
