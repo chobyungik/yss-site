@@ -303,7 +303,7 @@ export default function Page() {
   </p>
 
   {/* 메인 타이틀: 전부 하얀색 + 동일 크기 */}
-  <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-white drop-shadow">
+  <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-white drop-shadow">
     할머니의 손맛 그대로, 안동식 양념 소갈비를
     <br className="hidden md:block" />
     트렌디하게 즐기는 여상수
