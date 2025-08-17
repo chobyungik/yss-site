@@ -549,64 +549,67 @@ export default function Page() {
       </Section>
 
       {/* CONTACT 섹션 */}
-      <Section
-        id="contact"
-        title="문의"
-        subtitle="연락 주시면 24시간 이내에 회신합니다."
-        bg={BG.contact}
-        overlay="bg-white/65 backdrop-blur"
+     <Section
+  id="contact"
+  title="문의"
+  subtitle="연락 주시면 24시간 이내에 회신합니다."
+  bg={BG.contact}
+  overlay="bg-white/65 backdrop-blur"
+>
+  {/* ⬇ 기존 grid/order 제거하고, 폼 ↑ / 연락처 ↓ 구조로 변경 */}
+  <div className="space-y-8">
+    {/* 폼: 가운데 놓되 가로로 쭉 길게 */}
+    <form
+      action="#"
+      method="POST"
+      className="grid gap-4 max-w-3xl w-full mx-auto"
+    >
+      <input
+        name="name"
+        required
+        placeholder="이름"
+        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+      />
+      <input
+        name="phone"
+        required
+        placeholder="연락처"
+        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+      />
+      <input
+        name="area"
+        placeholder="희망 상권/지역"
+        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+      />
+      <textarea
+        name="msg"
+        placeholder="문의 내용"
+        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+        rows={5}
+      />
+      <button
+        type="submit"
+        className="border border-[#d9cfbc] rounded-xl px-4 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm w-full md:w-auto"
       >
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* 문의 폼 */}
-          <form
-            action="#" // 실제 처리 로직에 맞게 수정하세요
-            method="POST"
-            className="grid gap-4 order-2 md:order-1"
-          >
-            <input
-              name="name"
-              required
-              placeholder="이름"
-              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
-            />
-            <input
-              name="phone"
-              required
-              placeholder="연락처"
-              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
-            />
-            <input
-              name="area"
-              placeholder="희망 상권/지역"
-              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
-            />
-            <textarea
-              name="msg"
-              placeholder="문의 내용"
-              className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm"
-              rows={5}
-            />
-            <button
-              type="submit"
-              className="border border-[#d9cfbc] rounded-xl px-4 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm"
-            >
-              문의 보내기
-            </button>
-          </form>
-          {/* 문의 정보 */}
-          <div className="order-1 md:order-2 text-sm">
-            <div className="p-4 rounded-xl bg-white/80 border border-[#e5dccf] backdrop-blur">
-              <p className="font-semibold mb-2 text-[#2b2b2b]">연락처</p>
-              <p>대표번호: {BRAND.phone}</p>
-              <p>이메일: {BRAND.email}</p>
-              <p>주소: {BRAND.address}</p>
-              <p className="mt-2 text-xs text-[#6b6255]">
-                사업자등록번호: {BRAND.bizno}
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
+        문의 보내기
+      </button>
+    </form>
+
+    {/* 연락처: 맨 아래 + 가운데 정렬 고정 */}
+    <div className="text-sm">
+      <div className="p-5 rounded-xl bg-white/80 border border-[#e5dccf] backdrop-blur max-w-xl mx-auto text-center">
+        <p className="font-semibold mb-2 text-[#2b2b2b]">연락처</p>
+        <p>대표번호: {BRAND.phone}</p>
+        <p>이메일: {BRAND.email}</p>
+        <p>주소: {BRAND.address}</p>
+        <p className="mt-2 text-xs text-[#6b6255]">
+          사업자등록번호: {BRAND.bizno}
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>
+
 
       {/* 푸터 */}
       <footer className="border-t border-[#e5dccf]">
