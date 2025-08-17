@@ -496,17 +496,17 @@ export default function Page() {
             >
               <div>
                 <img
-                  src={c.before}
-                  alt={`${c.name} before`}
-                  className="w-full rounded-xl shadow border border-[#e5dccf]"
-                />
+  src={c.before}
+  alt={`${c.name} before`}
+  className="w-full h-[360px] md:h-[420px] object-cover rounded-xl shadow border border-[#e5dccf]"
+/>
               </div>
               <div>
-                <img
-                  src={c.after}
-                  alt={`${c.name} after`}
-                  className="w-full rounded-xl shadow border border-[#e5dccf]"
-                />
+               <img
+  src={c.after}
+  alt={`${c.name} after`}
+  className="w-full h-[360px] md:h-[420px] object-cover rounded-xl shadow border border-[#e5dccf]"
+/>
                 <div className="mt-4 p-4 border border-[#e5dccf] rounded-xl bg-white/80 backdrop-blur">
                   <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
                   <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
