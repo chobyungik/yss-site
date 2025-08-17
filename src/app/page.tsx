@@ -307,13 +307,13 @@ export default function Page() {
     할머니의 손맛 그대로, 안동식 양념 소갈비를
     <br className="hidden md:block" />
     트렌디하게 즐기는{" "}
-    <span className="text-[#e36f33] md:text-[1.15em] align-baseline">
+    <span className="text-white drop-shadow md:text-[1.15em] align-baseline">
       여상수
     </span>
   </h1>
 
   {/* 설명 문구: 빨간색 + 약간 크게 */}
-  <p className="max-w-3xl text-base md:text-lg text-red-500">
+  <p className="max-w-3xl text-base md:text-lg text-white drop-shadow">
     매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
   </p>
 
