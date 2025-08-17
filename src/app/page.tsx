@@ -161,9 +161,11 @@ function Section({
   subtitle,
   children,
   bg,
+  // 기본적으로 오버레이를 사용하지 않도록 공백 문자열을 기본값으로 설정합니다.
   overlay = "",
   fixed = true,
-  textClass = "text-[#222]", // 기본 글씨색 (검정)
+  titleClass = "",
+  textClass = "",
 }: {
   id: string;
   title: string;
@@ -172,48 +174,56 @@ function Section({
   bg?: string;
   overlay?: string;
   fixed?: boolean;
+  titleClass?: string;
   textClass?: string;
 }) {
   return (
     <motion.section
       id={id}
-      className={`relative py-20 ${textClass}`} // ✅ 여기 textClass 반영
+      className="relative py-20 text-[#222]"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
     >
       {bg && (
-        <div
-          className={`absolute inset-0 -z-10 ${fixed ? "bg-fixed" : ""}`}
-          style={{
-            backgroundImage: `url(${bg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          {/* ✅ overlay는 투명도 있는 색만 써야 배경 안 가려짐 */}
-          {overlay && <div className={`absolute inset-0 ${overlay}`} />}
-        </div>
+        <>
+          {/* 배경은 section 내부에서 독립된 스택이 되도록 z-0에 배치합니다 */}
+          <div
+            className={`absolute inset-0 z-0 ${fixed ? "bg-fixed" : ""}`}
+            style={{
+              backgroundImage: `url(${bg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          {/* 오버레이가 정의된 경우에만 덮습니다 */}
+          {overlay && overlay.trim() !== "" ? (
+            <div className={`absolute inset-0 z-0 ${overlay}`} />
+          ) : null}
+        </>
       )}
-
+      {/* 내용은 배경 위에 올라오도록 z-10에 배치합니다 */}
       <div className="relative z-10">
-        {subtitle && <p className="mb-4 text-lg">{subtitle}</p>}
-        <h2 className="text-3xl font-bold mb-6">{title}</h2>
-        {children}
+        <Shell>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${titleClass}`}>{title}</h2>
+          {subtitle && (
+            <p className={`mb-8 text-[#6b6255] max-w-2xl leading-relaxed ${textClass}`}>
+              {subtitle}
+            </p>
+          )}
+          {children}
+        </Shell>
       </div>
     </motion.section>
   );
 }
 
-
-
-
 /* 도넛 차트를 그리는 컴포넌트 */
 function Donut({ valuePercent }: { valuePercent: number }) {
   const dash = `${valuePercent} ${100 - valuePercent}`;
   return (
-    <svg viewBox="0 0 42 42" width="400" height="400" aria-label="profit donut">
+    <svg viewBox="0 0 42 42" width="220" height="220" aria-label="profit donut">
       <circle cx="21" cy="21" r="15.915" fill="#fff" />
       <circle
         cx="21"
@@ -537,7 +547,7 @@ export default function Page() {
             </ul>
           </div>
         </div>
-        <div className="mt-6 p-4 bg-white/80 border border-[#e5dccf] rounded-xl text-sm text-[#4a4339] backdrop-blur">
+        <div className="mt-6 p-4 border border-[#e5dccf] rounded-xl text-sm text-[#4a4339]">
           같은 컨셉이라도 리모델링 범위나 공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적을 제공합니다.
         </div>
       </Section>
@@ -573,7 +583,7 @@ export default function Page() {
                   alt={`${c.name} after`}
                   className="w-full h-[360px] md:h-[420px] object-cover rounded-xl shadow border border-[#e5dccf]"
                 />
-                <div className="mt-4 p-4 border border-[#e5dccf] rounded-xl bg-white/80 backdrop-blur">
+                <div className="mt-4 p-4 border border-[#e5dccf] rounded-xl">
                   <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
                   <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
                   <p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
@@ -586,32 +596,33 @@ export default function Page() {
 
       {/* PROCESS 섹션 */}
       <Section
-  id="process"
-  title="창업 절차"
-  bg={BG.process} // ✅ 배경이미지 정상 반영
->
-  <ol className="flex flex-wrap gap-5">
-    {[
-      "상담/상권 검토",
-      "현장 실측/견적",
-      "계약/일정 확정",
-      "조리/운영 교육",
-      "시범 운영/오픈",
-    ].map((step, i) => (
-      <li
-        key={step}
-        className="rounded-2xl border border-[#e5dccf] !bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
+        id="process"
+        title="창업 절차"
+        bg={BG.process}
+        overlay=""
       >
-        <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
-          {i + 1}
-        </span>
-        <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
-          {step}
-        </span>
-      </li>
-    ))}
-  </ol>
-</Section>
+        <ol className="flex flex-wrap gap-5">
+          {[
+            "상담/상권 검토",
+            "현장 실측/견적",
+            "계약/일정 확정",
+            "조리/운영 교육",
+            "시범 운영/오픈",
+          ].map((step, i) => (
+            <li
+              key={step}
+              className="rounded-2xl border border-[#e5dccf] bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
+            >
+              <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white text-sm font-bold shrink-0">
+                {i + 1}
+              </span>
+              <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
+                {step}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
       {/* CONTACT 섹션 */}
       <Section
