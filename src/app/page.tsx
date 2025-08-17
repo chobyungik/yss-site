@@ -81,7 +81,7 @@ const PROFIT = [
   { k: "공과금(2.6%)", v: "-813,220" },
   { k: "숯 및 불판(1.5%)", v: "-470,000" },
   { k: "식자재 및 잡비(8.5%)", v: "-2,664,000" },
-  { k: "세전이익(44%)", v: "13,188,000" },
+  { k: "세전이익(42%)", v: "13,188,000" },
 ];
 
 // 비용: 소프트웨어 / 하드웨어
@@ -411,7 +411,7 @@ export default function Page() {
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
-            <Donut valuePercent={44} />
+            <Donut valuePercent={42} />
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
