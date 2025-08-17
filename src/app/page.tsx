@@ -20,7 +20,7 @@ const BRAND = {
   tagline: "할머니의 손맛 그대로, 안동식 양념 소갈비를 트렌디하게 즐기는",
   phone: "010-8230-0800",
   address: "경기도 안양시 삼덕로 80-1, 1층 여상수",
-  bizno: "000-00-00000",
+  bizno: "181-41-01276",
   email: "contact@example.com",
   logoSrc: "/images/logo.png", // 로고 파일명
 };
@@ -60,7 +60,7 @@ const REASONS = [
   {
     num: "04",
     title: "리모델링 창업",
-    desc: "기존 매장 전환 시 리모델링을 통해 CAPEX를 절감합니다.",
+    desc: "기존 매장 전환 시 리모델링을 통해 파격적으로 금액 절감가능합니다.",
     img: "/images/reason4.jpg",
   },
   {
@@ -69,23 +69,19 @@ const REASONS = [
     desc: "초보자도 가능한 조리·서비스 매뉴얼을 제공합니다.",
     img: "/images/reason5.jpg",
   },
-  {
-    num: "06",
-    title: "빠른 배달 병행",
-    desc: "배달 병행 및 다양한 메뉴 확장으로 수익을 극대화합니다.",
-    img: "/images/reason6.jpg",
-  },
-];
+ ];
 
 
 // 수익률 테이블
 const PROFIT = [
-  { k: "월매출(100%)", v: "58,000,000" },
-  { k: "식자재(27%)", v: "-15,660,000" },
-  { k: "인건비(12%)", v: "-6,960,000" },
-  { k: "임대료(2%)", v: "-1,160,000" },
-  { k: "기타(5%)", v: "-2,900,000" },
-  { k: "세전이익(44%)", v: "25,520,000" },
+  { k: "월매출(100%)", v: "31,278,000" },
+  { k: "고기(30%)", v: "-9,383,400" },
+  { k: "인건비(7%)", v: "-2,200,000" },
+  { k: "임대료(2.8%)", v: "-900,000" },
+  { k: "공과금(2.6%)", v: "-813,220" },
+  { k: "숯 및 불판(1.5%)", v: "-470,000" },
+  { k: "식자재 및 잡비(8.5%)", v: "-2,664,000" },
+  { k: "세전이익(44%)", v: "13,188,000" },
 ];
 
 // 비용: 소프트웨어 / 하드웨어
@@ -105,21 +101,21 @@ const COST_HARD = [
 // 사례(BEFORE / AFTER)
 const CASES = [
   {
-    name: "안성아양점(30평)",
+    name: "안양중앙시장점(20평)",
     before: "/images/case-ansung-before.jpg",
     after: "/images/case-ansung-after.jpg",
     memo: "덕트/가스/전기 보강 + 주방설비 + 간판",
     total: "시설 1,800만 / 총 3,600만",
   },
   {
-    name: "신도림점(35평)",
+    name: "안산중앙점(35평)",
     before: "/images/case-sindorim-before.jpg",
     after: "/images/case-sindorim-after.jpg",
     memo: "리모델 2,700 + 설비증설 1,000 + 기물 1,000",
     total: "시설 5,950만 / 총 7,950만",
   },
   {
-    name: "강릉점(40평)",
+    name: "안산사동점(40평)",
     before: "/images/case-gangneung-before.jpg",
     after: "/images/case-gangneung-after.jpg",
     memo: "인테리어 7,000 + 설비 2,000 + 가구/사인",
@@ -127,25 +123,6 @@ const CASES = [
   },
 ];
 
-// FAQ 목록
-const FAQ = [
-  {
-    q: "완전 초보인데 가능한가요?",
-    a: "조리·서비스 매뉴얼 및 1:1 교육 제공. 시범 운영 후 오픈을 권장합니다.",
-  },
-  {
-    q: "권장 상권/면적은?",
-    a: "오피스·주거 혼합 상권 20~40평. 배달 병행 가능 입지면 더 좋습니다.",
-  },
-  {
-    q: "원가율은 어느 정도?",
-    a: "핵심 식자재 직공급 기준 30% 내외(상권/운영 따라 변동).",
-  },
-  {
-    q: "오픈까지 기간은?",
-    a: "계약 후 평균 4~6주(현장 상황/인허가에 따라 달라질 수 있습니다).",
-  },
-];
 
 // 섹션별 배경 이미지 경로: 필요 시 실제 이미지 파일명으로 교체하세요.
 const BG = {
@@ -344,7 +321,7 @@ export default function Page() {
       <Section
         id="about"
         title="브랜드 소개"
-        subtitle="핵심은 단일공정·원가율·배달 병행"
+        subtitle="핵심은 단일공정·원가율·빠른 회전율"
         bg={BG.about}
         overlay="bg-white/65 backdrop-blur"
       >
@@ -370,14 +347,14 @@ export default function Page() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <p className="leading-7 text-[#3b342c]">
-              평상집은 2018년 화성시 향남의 외곽지역에서 처음 시작되었습니다. 이후 지속적인 발전과 함께
-              가맹사업을 시작하여 현재 10개 이상의 가맹점이 활발히 영업 중입니다. 계절을 타지 않는 백숙과
-              삼계탕, 홀과 배달 모두 강한 음식점을 표방하여 어려운 시기에도 생존할 수 있는 강한 브랜드입니다.
+              여상수는 2023년 안양에서 시작된 안동식양념소갈비 전문 브랜드입니다.
+              가맹사업을 시작하여 현재 8개이상의 가맹점이 활발히 영업 중입니다. 양념소갈비, 남녀노소에가 모두 사랑받는 메뉴로
+              쉬운 운영과 최적화된 동선으로 누구나 쉽게 운영가능하며 어려운 시기에도 생존할 수 있는 강한 브랜드입니다. 
             </p>
             <ul className="list-disc ml-5 text-sm text-[#6b6255] space-y-2">
               <li>동일 품질을 위한 표준 레시피와 공급망</li>
-              <li>홀·배달 겸용 구조로 비수기 완충</li>
-              <li>리모델 중심의 CAPEX 절감 전략</li>
+              <li>인건비 최소화 구조로 비수기 완충</li>
+              <li>리모델 중심의 초기 투자 절감 전략</li>
             </ul>
           </motion.div>
         </div>
@@ -387,7 +364,7 @@ export default function Page() {
       <Section
         id="edge"
         title="경쟁력"
-        subtitle="초보 창업자들에게 평상집을 권하는 6가지 이유"
+        subtitle="초보 창업자들에게 평상집을 권하는 5가지 이유"
         bg={BG.edge}
         overlay="bg-white/55 backdrop-blur"
       >
@@ -569,28 +546,6 @@ export default function Page() {
             </motion.li>
           ))}
         </ol>
-      </Section>
-
-      {/* FAQ 섹션 */}
-      <Section
-        id="faq"
-        title="자주 묻는 질문"
-        bg={BG.faq}
-        overlay="bg-white/70 backdrop-blur"
-      >
-        <div className="space-y-4">
-          {FAQ.map((f, i) => (
-            <details
-              key={i}
-              className="rounded-xl border border-[#e5dccf] p-4 bg-white/85 backdrop-blur text-[#3b342c]"
-            >
-              <summary className="font-medium cursor-pointer">
-                {f.q}
-              </summary>
-              <p className="mt-2 text-sm text-[#4a4339]">{f.a}</p>
-            </details>
-          ))}
-        </div>
       </Section>
 
       {/* CONTACT 섹션 */}
