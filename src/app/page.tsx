@@ -292,16 +292,25 @@ export default function Page() {
         </div>
         <Shell>
           <div className="relative h-[80vh] flex items-center">
-            <motion.div
+           <motion.div
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
 >
-  {/* ↑ 주황 라벨: 크기 키움 */}
-  <p className="uppercase tracking-widest text-sm md:text-base mb-4 text-[#e36f33]">
+  {/* 주황 라벨(작게) */}
+  <p className="uppercase tracking-widest text-xs mb-3 text-[#e36f33]">
     성공창업의 동반자
   </p>
-  <p className="max-w-3xl text-base md:text-lg text-white drop-shadow">
+
+  {/* 메인 타이틀: 전부 하얀색 + 동일 크기 */}
+  <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-white drop-shadow">
+    할머니의 손맛 그대로, 안동식 양념 소갈비를
+    <br className="hidden md:block" />
+    트렌디하게 즐기는 여상수
+  </h1>
+
+  {/* 설명 문구: 전처럼 하얀색 */}
+  <p className="max-w-3xl text-white/90 text-sm md:text-base">
     매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
   </p>
 
@@ -312,6 +321,7 @@ export default function Page() {
     더 알아보기
   </a>
 </motion.div>
+
 
           </div>
         </Shell>
