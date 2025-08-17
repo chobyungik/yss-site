@@ -557,43 +557,38 @@ export default function Page() {
   overlay="bg-white/65 backdrop-blur"
 >
   {/* 폼: 전체 폭 + 데스크톱에서 가로 3분할 */}
-  <form action="#" method="POST" className="grid gap-4 w-full">
-    <div className="grid md:grid-cols-3 gap-4">
-      <input
-        name="name"
-        required
-        placeholder="이름"
-        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
-      />
-      <input
-        name="phone"
-        required
-        placeholder="연락처"
-        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
-      />
-      <input
-        name="area"
-        placeholder="희망 상권/지역"
-        className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
-      />
-    </div>
+ <form
+  action="https://formspree.io/f/your-form-id"  // ← Formspree 대시보드에서 복사한 ID로 교체
+  method="POST"
+  acceptCharset="UTF-8"
+  className="grid gap-4 w-full"
+>
+  {/* 1줄 3칸 */}
+  <div className="grid md:grid-cols-3 gap-4">
+    <input name="name"  required placeholder="이름"
+           className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full" />
+    <input name="phone" required placeholder="연락처"
+           className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full" />
+    <input name="area"  placeholder="희망 상권/지역"
+           className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full" />
+  </div>
 
-    <textarea
-      name="msg"
-      placeholder="문의 내용"
-      className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
-      rows={6}
-    />
+  {/* 내용 */}
+  <textarea name="msg" placeholder="문의 내용"
+            className="border border-[#e0d6c4] rounded-lg px-3 py-2 bg-white text-sm w-full"
+            rows={6} />
 
-    <div className="flex justify-end">
-      <button
-        type="submit"
-        className="border border-[#d9cfbc] rounded-xl px-6 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm w-full md:w-auto"
-      >
-        문의 보내기
-      </button>
-    </div>
-  </form>
+  {/* 옵션: 제목 / 스팸 방지(봇용 숨김 필드) */}
+  <input type="hidden" name="_subject" value="[여상수 문의]" />
+  <input type="text"   name="_gotcha"  className="hidden" tabIndex={-1} autoComplete="off" />
+
+  <div className="flex justify-end">
+    <button type="submit"
+            className="border border-[#d9cfbc] rounded-xl px-6 py-3 font-semibold bg-white/80 hover:bg-white transition text-sm w-full md:w-auto">
+      문의 보내기
+    </button>
+  </div>
+</form>
 </Section>
 
 
