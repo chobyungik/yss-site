@@ -522,30 +522,39 @@ export default function Page() {
       <Section
         id="process"
         title="창업 절차"
-        subtitle="상담 → 실측 → 계약 → 교육 → 오픈"
         bg={BG.process}
         overlay="bg-white/80 backdrop-blur"
       >
-        <ol className="grid md:grid-cols-5 gap-4 list-decimal ml-5 text-sm">
-          {[
-            "상담/상권 검토",
-            "현장 실측/견적",
-            "계약/일정 확정",
-            "조리/운영 교육",
-            "시범 운영/오픈",
-          ].map((step, i) => (
-            <motion.li
-              key={step}
-              className="p-4 border border-[#e5dccf] rounded-xl bg-white/80 backdrop-blur text-[#3b342c]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-            >
-              {step}
-            </motion.li>
-          ))}
-        </ol>
+       {/* PROCESS 섹션 내부 교체 */}
+<ol className="grid md:grid-cols-5 gap-5 list-none p-0">
+  {[
+    "상담/상권 검토",
+    "현장 실측/견적",
+    "계약/일정 확정",
+    "조리/운영 교육",
+    "시범 운영/오픈",
+  ].map((step, i) => (
+    <li
+      key={step}
+      className="relative flex items-center gap-4 rounded-2xl border border-[#e5dccf] bg-white/85 backdrop-blur px-5 py-6 shadow-sm"
+    >
+      {/* 숫자 배지(그림처럼) */}
+      <span
+        className="grid place-items-center w-11 h-11 rounded-full bg-[#e36f33] text-white
+                   font-extrabold text-lg shadow-md select-none"
+        aria-hidden
+      >
+        {i + 1}
+      </span>
+
+      {/* 텍스트(크고 두껍게) */}
+      <span className="text-base md:text-lg font-semibold text-[#1f1a14]">
+        {step}
+      </span>
+    </li>
+  ))}
+</ol>
+
       </Section>
 
       {/* CONTACT 섹션 */}
