@@ -248,6 +248,7 @@ function Donut({ valuePercent }: { valuePercent: number }) {
 function ReasonBand({
   r,
   flip = false,
+  header, // ⬅ 추가
 }: {
   r: {
     num: string;
@@ -258,25 +259,31 @@ function ReasonBand({
     overlay?: string;
   };
   flip?: boolean;
+  header?: { title: string; subtitle?: string }; // ⬅ 추가
 }) {
   return (
     <section className="relative py-20 text-[#222]">
       {r.bg && (
         <div className="absolute inset-0 -z-10">
           <img src={r.bg} alt="" className="w-full h-full object-cover" />
-          <div
-            className={`absolute inset-0 ${
-              r.overlay ?? "bg-white/60 backdrop-blur"
-            }`}
-          />
+          <div className={`absolute inset-0 ${r.overlay ?? "bg-white/60 backdrop-blur"}`} />
         </div>
       )}
+
       <Shell>
-        <div
-          className={`flex flex-col md:flex-row items-center gap-10 ${
-            flip ? "md:flex-row-reverse" : ""
-          }`}
-        >
+        {/* ⬇️ 처음 이유에서만 제목/부제목을 같이 출력 */}
+        {header && (
+          <>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">{header.title}</h2>
+            {header.subtitle && (
+              <p className="mb-8 text-[#6b6255] max-w-2xl leading-relaxed">
+                {header.subtitle}
+              </p>
+            )}
+          </>
+        )}
+
+        <div className={`flex flex-col md:flex-row items-center gap-10 ${flip ? "md:flex-row-reverse" : ""}`}>
           {r.img && (
             <div className="md:w-1/2">
               <img
@@ -288,9 +295,7 @@ function ReasonBand({
               />
             </div>
           )}
-          <div
-            className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}
-          >
+          <div className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}>
             <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
               이유 {r.num}
             </span>
