@@ -558,7 +558,7 @@ export default function Page() {
 >
   {/* 폼: 전체 폭 + 데스크톱에서 가로 3분할 */}
  <form
-  action="https://formspree.io/f/your-form-id"  // ← Formspree 대시보드에서 복사한 ID로 교체
+  action="https://formspree.io/f/xzzvwlna"  // ← Formspree 대시보드에서 복사한 ID로 교체
   method="POST"
   acceptCharset="UTF-8"
   className="grid gap-4 w-full"
