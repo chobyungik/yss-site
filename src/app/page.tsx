@@ -264,7 +264,7 @@ function ReasonBand({
   return (
     <section className="relative py-20 text-[#222]">
       {r.bg && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 -z-10">
           <img src={r.bg} alt="" className="w-full h-full object-cover" />
           <div className={`absolute inset-0 ${r.overlay ?? "bg-white/60 backdrop-blur"}`} />
         </div>
