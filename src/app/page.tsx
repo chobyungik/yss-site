@@ -492,7 +492,8 @@ export default function Page() {
             i === 0
               ? {
                  title: <span className="text-white">경쟁력</span>,
-        subtitle: <span className="text-white">초보 창업자들에게 여상수를 권하는 5가지 이유</span>,                
+        subtitle: <span className="text-white">전통방식으로 조리? 특제 육수와 특제 소스? 정성을 다해서 끓이는 노력? 이런 건 어디든지 다 하는 겁니다.
+화려한 미사여구는 빼고 담백하게 창업자가 알아야 할 진짜 여상수의 장점을 알려드립니다.</span>,                
                 }
               : undefined
           }
