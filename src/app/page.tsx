@@ -463,7 +463,7 @@ export default function Page() {
             <img
               src="/images/about-photo.jpg"
               alt="대표"
-              className="w-full rounded-2xl shadow border border-[#e5dccf]"
+              className="w-full h-[420px] object-cover rounded-xl border border-[#e5dccf] shadow"
             />
           </motion.div>
           <motion.div
@@ -482,7 +482,7 @@ export default function Page() {
             </p>
             <ul className="list-disc ml-5 text-sm text-[#6b6255] space-y-2">
               <li>동일 품질을 위한 표준 레시피와 공급망</li>
-              <li>인건비 최소화 구조로 비수기 완충</li>
+              <li>인건비 최소화 및 운영최적화 구조로 안정적인 수익</li>
               <li>리모델 중심의 초기 투자 절감 전략</li>
             </ul>
           </motion.div>
