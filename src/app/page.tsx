@@ -400,7 +400,7 @@ alt={`${BRAND.name} 로고`}
 className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
 />
 </a>
-<div className="hidden md:flex gap-6 text-sm">
+<div className="flex gap-6 text-sm">
 {NAV.map((n) => (
 <a
 key={n.href}
