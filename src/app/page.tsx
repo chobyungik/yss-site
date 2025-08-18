@@ -40,10 +40,10 @@ const REASONS = [
   title: "1인 운영 구조",
   desc: (
     <p className="inline-block max-w-3xl text-white/95 text-sm md:text-base bg-black/35 px-3 py-2 rounded-md whitespace-pre-line">
-      양념갈비살, 양념간받이, 한우대창, 청정특양 등.
-      여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만 다를 뿐 사실상 단일 메뉴인 셈입니다.
-      공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
-      여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
+      양념갈비살, 양념간받이, 한우대창, 청정특양 등./n
+      여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만/n 다를 뿐 사실상 단일 메뉴인 셈입니다./n
+      공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,/n
+      여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에/n
       완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.
     </p>
   ),
@@ -337,27 +337,23 @@ function ReasonBand({
               />
             </div>
           )}
-          <div
-            className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}
-          >
-            <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
-              이유 {r.num}
-            </span>
-            <h3
-              className={`text-2xl font-semibold ${
-                r.textClass || "text-[#2b2b2b]"
-              }`}
-            >
-              {r.title}
-            </h3>
-            <p
-              className={`leading-6 whitespace-pre-line ${
-                r.textClass || "text-[#4a4339]"
-              }`}
-            >
-              {r.desc}
-            </p>
-          </div>
+<div className={`md:w-1/2 space-y-3 ${flip ? "md:pr-6" : "md:pl-6"}`}>
+  <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
+    이유 {r.num}
+  </span>
+
+  <h3 className={`text-2xl font-semibold ${r.textClass || "text-[#2b2b2b]"}`}>
+    {r.title}
+  </h3>
+
+  {typeof r.desc === "string" ? (
+    <p className={`leading-6 whitespace-pre-line ${r.textClass || "text-[#4a4339]"}`}>
+      {r.desc}
+    </p>
+  ) : (
+    r.desc
+  )}
+</div>
         </div>
       </Shell>
     </section>
