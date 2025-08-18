@@ -460,21 +460,20 @@ export default function Page() {
   overlay=""
 >
   {/* md:grid-cols-3 → md:grid-cols-2 로 변경 */}
-  <div className="grid md:grid-cols-2 gap-8 items-center">
-    <motion.div
-      className="md:col-span-1"
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <img
-        src="/images/about-photo.jpg"
-        alt="대표"
-        /* h-[420px] 삭제, REASON과 동일한 클래스 */
-        className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
-      />
-    </motion.div>
+  <div className="flex flex-col md:flex-row items-center gap-8">
+  <motion.div
+    className="md:w-1/2"
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <img
+      src="/images/about-photo.jpg"
+      alt="대표"
+      className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
+    />
+  </motion.div>
 
     <motion.div
       className="md:col-span-1 space-y-4"
