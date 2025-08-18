@@ -549,49 +549,51 @@ export default function Page() {
 
       {/* COST 섹션 */}
       <Section
-        id="cost"
-        title="창업비용"
-        subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
-        bg={BG.cost}
-        overlay="bg-gradient-to-b from-black/70 via-black/50 to-black/30"
-        titleClass=""
-        textClass="text-white drop-shadow-md"
-      >
-       <div className="bg-black/40 p-6 rounded-2xl shadow-lg">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h4 className="font-semibold mb-2 text-[#2b2b2b]">소프트웨어</h4>
-            <ul className="space-y-2 text-sm">
-              {COST_SOFT.map((c) => (
-                <li
-                  key={c.k}
-                  className="flex justify-between border-b border-[#e5dccf] py-2 text-[#3b342c]"
-                >
-                  <span>{c.k}</span>
-                  <span>{c.v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2 text-[#2b2b2b]">하드웨어(실비)</h4>
-            <ul className="space-y-2 text-sm">
-              {COST_HARD.map((c) => (
-                <li
-                  key={c.k}
-                  className="flex justify-between border-b border-[#e5dccf] py-2 text-[#3b342c]"
-                >
-                  <span>{c.k}</span>
-                  <span>{c.v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="mt-6 p-4 border border-[#e5dccf] rounded-xl text-sm text-[#4a4339]">
-          같은 컨셉이라도 리모델링 범위나 공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적을 제공합니다.
-        </div>
-       </Section>
+  id="cost"
+  title="창업비용"
+  subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
+  bg={BG.cost}
+  overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
+  titleClass="text-white"
+  textClass="text-white/90"
+>
+  {/* 섹션 전체를 흰 글자 + 반투명 카드로 감싸기 */}
+  <div className="grid md:grid-cols-2 gap-8 text-white">
+    <div className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+      <h4 className="font-semibold mb-3 text-white">소프트웨어</h4>
+      <ul className="space-y-2 text-sm">
+        {COST_SOFT.map((c) => (
+          <li
+            key={c.k}
+            className="flex justify-between border-b border-white/20 py-2 text-white/90"
+          >
+            <span>{c.k}</span>
+            <span className="tabular-nums">{c.v}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+      <h4 className="font-semibold mb-3 text-white">하드웨어(실비)</h4>
+      <ul className="space-y-2 text-sm">
+        {COST_HARD.map((c) => (
+          <li
+            key={c.k}
+            className="flex justify-between border-b border-white/20 py-2 text-white/90"
+          >
+            <span>{c.k}</span>
+            <span className="tabular-nums">{c.v}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-6 bg-black/40 backdrop-blur-sm p-4 border border-white/20 rounded-xl text-sm text-white/80">
+    같은 컨셉이라도 리모델링 범위나 공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적을 제공합니다.
+  </div>
+</Section>
 
       {/* CASES 섹션 */}
       <Section
