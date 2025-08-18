@@ -47,7 +47,7 @@ const REASONS = [
       완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,
   img: "/images/reason1.jpg",
   bg: "/images/reason1-bg.jpg",
-  overlay: "bg-gradient-to-b from-black/80 via-black/60 to-black/40 md:from-black/80 md:via-black/60",
+  overlay: "bg-gradient-to-b from-black/90 via-black/70 to-black/50 md:from-black/90 md:via-black/70",
   textClass: "text-white drop-shadow-md",
 },
   {
@@ -63,7 +63,8 @@ const REASONS = [
     desc: `핵심 식자재 직공급으로 목표 원가율을 35% 내외로 유지합니다.`,
     img: "/images/reason3.jpg",
     bg: "/images/reason3-bg.jpg",
-    overlay: "bg-gradient-to-b from-black/80 via-black/60 to-black/40 md:from-black/80 md:via-black/60",
+    overlay: "bg-gradient-to-b from-black/90 via-black/70 to-black/50 md:from-black/90 md:via-black/70",
+    textClass: "text-white drop-shadow-md"
   },
   {
     num: "04",
@@ -79,7 +80,8 @@ const REASONS = [
     desc: `초보자도 가능한 조리·서비스 매뉴얼을 제공합니다.`,
     img: "/images/reason5.jpg",
     bg: "/images/reason5-bg.jpg",
-    overlay: "",
+    overlay: "bg-gradient-to-b from-black/90 via-black/70 to-black/50 md:from-black/90 md:via-black/70",
+    textClass: "text-white drop-shadow-md"
   },
 ];
 
