@@ -554,7 +554,7 @@ export default function Page() {
   title="창업비용"
   subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
   bg={BG.cost}
-  overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
+  overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40 bg-black/30 backdrop-blur-md"
   titleClass=""
   textClass="text-white/90"
 >
@@ -645,9 +645,9 @@ export default function Page() {
         id="process"
         title="창업 절차"
         bg={BG.process}
-        overlay=""
-        titleClass="text-[#f97316]"
-        textClass="text-[#f97316]"
+        overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
+        titleClass=""
+        textClass="text-white drop-shadow-md"
       >
         <ol className="flex flex-wrap gap-5">
           {[
