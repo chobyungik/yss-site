@@ -53,8 +53,7 @@ const REASONS = [
     title: "안정 객단가",
     desc: `양념 + 소고기 중심으로 적은 테이블에서도 안정적인 매출을 기대할 수 있습니다.`,
     img: "/images/reason2.jpg",
-    bg: "/images/reason2-bg.jpg",
-    overlay: "",
+    bg: "/images/reason2-bg.jpg",    
   },
   {
     num: "03",
@@ -307,16 +306,16 @@ function ReasonBand({
       <Shell>
         {/* 헤더(제목/부제목)를 첫 번째 이유에서만 출력 */}
         {header && (
-          <div className="relative z-20 mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              {header.title}
-            </h2>
-            {header.subtitle && (
-              <p className="text-[#6b6255] max-w-2xl leading-relaxed">
-                {header.subtitle}
-              </p>
-            )}
-          </div>
+  <div className="relative z-20 mb-8">
+    <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[#FF9C00]">
+      {header.title}
+    </h2>
+    {header.subtitle && (
+      <p className="text-[#6b6255] max-w-2xl leading-relaxed">
+        {header.subtitle}
+      </p>
+    )}
+  </div>
         )}
         <div
           className={`relative z-20 flex flex-col md:flex-row items-center gap-10 ${
