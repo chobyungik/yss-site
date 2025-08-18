@@ -628,8 +628,8 @@ export default function Page() {
         subtitle="실제 리모델링 사례"
         bg={BG.cases}
         overlay=""
-        titleClass="text-white"
-        textClass="text-white"
+        titleClass=""
+        textClass=""
       >
         <div className="space-y-12">
           {CASES.map((c, i) => (
