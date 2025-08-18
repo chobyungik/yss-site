@@ -63,7 +63,7 @@ const REASONS = [
     desc: `핵심 식자재 직공급으로 목표 원가율을 35% 내외로 유지합니다.`,
     img: "/images/reason3.jpg",
     bg: "/images/reason3-bg.jpg",
-    overlay: "",
+    overlay: "bg-gradient-to-b from-black/80 via-black/60 to-black/40 md:from-black/80 md:via-black/60",
   },
   {
     num: "04",
