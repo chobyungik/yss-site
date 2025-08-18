@@ -208,7 +208,7 @@ function Section({
       <div className="relative z-10">
         <Shell>
           <h2
-            className={`text-3xl md:text-4xl font-bold mb-3 text-[#e36f33] ${titleClass}`}
+            className={`text-3xl md:text-4xl font-bold mb-3 text-[#FF9C00] ${titleClass}`}
           >
             {title}
           </h2>
