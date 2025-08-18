@@ -554,7 +554,7 @@ export default function Page() {
   subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
   bg={BG.cost}
   overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
-  titleClass="text-white"
+  titleClass=""
   textClass="text-white/90"
 >
   {/* 섹션 전체를 흰 글자 + 반투명 카드로 감싸기 */}
