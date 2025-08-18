@@ -415,50 +415,6 @@ export default function Page() {
       </nav>
     </Shell>
   </div>
-</div>
-
-
-
-
-
-
-
-나의 말:
-헤더 이런건 없어졌냐 왜 ?
-
-
-ChatGPT의 말:
-
-41s 동안 생각함
-tsx
-복사
-편집
-<div className="min-h-screen bg-white text-[#222]">
-  {/* 네비게이션 바 */}
-  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-    <Shell>
-      <nav className="h-16 md:h-20 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <img
-            src={BRAND.logoSrc}
-            alt={`${BRAND.name} 로고`}
-            className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-          />
-        </a>
-        <div className="hidden md:flex gap-6 text-sm">
-          {NAV.map((n) => (
-            <a
-              key={n.href ?? n.label}
-              href={n.href}
-              className="hover:text-[#e36f33] transition"
-            >
-              {n.label}
-            </a>
-          ))}
-        </div>
-      </nav>
-    </Shell>
-  </div>
 
   {/* HERO 헤더 */}
   <header id="home" className="relative">
