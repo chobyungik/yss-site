@@ -654,12 +654,7 @@ src={c.after}
 alt={`${c.name} after`}
 className="w-full h-[360px] md:h-[420px] object-cover rounded-xl shadow border border-[#e5dccf]"
 />
-                <div className="mt-4 p-4 border border-[#e5dccf] rounded-xl">
-                  <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
-                  <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
-                  <p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
-                </div>
-               <div className="mt-4 p-4 rounded-xl bg-[#f5f0e8] border border-[#e5dccf] shadow-md">
+                               <div className="mt-4 p-4 rounded-xl bg-[#f5f0e8] border border-[#e5dccf] shadow-md">
   <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
   <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
   <p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
