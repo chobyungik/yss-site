@@ -557,6 +557,7 @@ export default function Page() {
         titleClass=""
         textClass="text-white drop-shadow-md"
       >
+       <div className="bg-black/40 p-6 rounded-2xl shadow-lg">
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h4 className="font-semibold mb-2 text-[#2b2b2b]">소프트웨어</h4>
