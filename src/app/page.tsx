@@ -280,7 +280,7 @@ function ReasonBand({
   r: {
     num: string;
     title: string;
-    desc: string;
+    desc: React.ReactNode;   //
     img?: string | null;
     bg?: string | null;
     overlay?: string;
