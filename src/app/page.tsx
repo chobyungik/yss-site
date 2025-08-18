@@ -207,7 +207,6 @@ function Section({
       {/* 내용은 배경 위에 올라오도록 z-10에 배치합니다 */}
       <div className="relative z-10">
         <Shell>
-          <h2
             <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${titleClass} text-[#FF9C00]`}
               >
             {title}
