@@ -453,48 +453,51 @@ export default function Page() {
 
       {/* ABOUT 섹션 */}
       <Section
-        id="about"
-        title="브랜드 소개"
-        subtitle="핵심은 단일공정·원가율·빠른 회전율"
-        bg={BG.about}
-        overlay=""
-      >
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          <motion.div
-            className="md:col-span-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <img
-              src="/images/about-photo.jpg"
-              alt="대표"
-              className="w-full h-[420px] object-cover rounded-xl border border-[#e5dccf] shadow"
-            />
-          </motion.div>
-          <motion.div
-            className="md:col-span-2 space-y-4"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <p className="leading-7 text-[#3b342c]">
-              여상수는 2023년 안양에서 시작된 안동식양념소갈비 전문 브랜드입니다.<br />
-              가맹사업을 시작하여 현재 8개이상의 가맹점이 활발히 영업 중입니다.<br />
-              양념소갈비, 남녀노소에게 모두 사랑받는 메뉴로<br />
-              쉬운 운영과 최적화된 동선으로 누구나 쉽게 운영가능하며<br />
-              어려운 시기에도 생존할 수 있는 강한 브랜드입니다.
-            </p>
-            <ul className="list-disc ml-5 text-sm text-[#6b6255] space-y-2">
-              <li>동일 품질을 위한 표준 레시피와 공급망</li>
-              <li>인건비 최소화 및 운영최적화 구조로 안정적인 수익</li>
-              <li>리모델 중심의 초기 투자 절감 전략</li>
-            </ul>
-          </motion.div>
-        </div>
-      </Section>
+  id="about"
+  title="브랜드 소개"
+  subtitle="핵심은 단일공정·원가율·빠른 회전율"
+  bg={BG.about}
+  overlay=""
+>
+  {/* md:grid-cols-3 → md:grid-cols-2 로 변경 */}
+  <div className="grid md:grid-cols-2 gap-8 items-center">
+    <motion.div
+      className="md:col-span-1"
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* 리즌과 동일한 이미지 클래스 (고정 높이 제거) */}
+      <img
+        src="/images/about-photo.jpg"
+        alt="대표"
+        className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
+      />
+    </motion.div>
+
+    <motion.div
+      className="md:col-span-1 space-y-4"
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.15 }}
+    >
+      <p className="leading-7 text-[#3b342c]">
+        여상수는 2023년 안양에서 시작된 안동식양념소갈비 전문 브랜드입니다.<br />
+        가맹사업을 시작하여 현재 8개이상의 가맹점이 활발히 영업 중입니다.<br />
+        양념소갈비, 남녀노소에게 모두 사랑받는 메뉴로<br />
+        쉬운 운영과 최적화된 동선으로 누구나 쉽게 운영가능하며<br />
+        어려운 시기에도 생존할 수 있는 강한 브랜드입니다.
+      </p>
+      <ul className="list-disc ml-5 text-sm text-[#6b6255] space-y-2">
+        <li>동일 품질을 위한 표준 레시피와 공급망</li>
+        <li>인건비 최소화 및 운영최적화 구조로 안정적인 수익</li>
+        <li>리모델 중심의 초기 투자 절감 전략</li>
+      </ul>
+    </motion.div>
+  </div>
+</Section>
 
       {/* EDGE 섹션: 별도의 섹션 대신 첫 번째 ReasonBand에 제목/부제목을 포함하여 출력합니다. */}
       {/* 앵커 역할을 위한 div를 추가합니다. */}
