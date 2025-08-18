@@ -649,35 +649,40 @@ export default function Page() {
 
       {/* PROCESS 섹션 */}
       <Section
-        id="process"
-        title="창업 절차"
-        bg={BG.process}
-        overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
-        titleClass=""
-        textClass="text-white drop-shadow-md"
+  id="process"
+  title="창업 절차"
+  bg={BG.process}
+  overlay="bg-gradient-to-b from-black/80 via-black/60 to-black/40"
+  titleClass=""
+  textClass="text-white drop-shadow-md"
+>
+  <ol className="flex flex-wrap gap-5">
+    {[
+      "상담/상권 검토",
+      "현장 실측/견적",
+      "계약/일정 확정",
+      "조리/운영 교육",
+      "시범 운영/오픈",
+    ].map((step, i) => (
+      <li
+        key={step}
+        className="inline-flex items-center gap-4 px-6 py-4
+                   rounded-2xl bg-black/55 backdrop-blur-sm
+                   ring-1 ring-white/20 shadow-md w-fit"
       >
-        <ol className="flex flex-wrap gap-5">
-          {[
-            "상담/상권 검토",
-            "현장 실측/견적",
-            "계약/일정 확정",
-            "조리/운영 교육",
-            "시범 운영/오픈",
-          ].map((step, i) => (
-            <li
-              key={step}
-              className="rounded-2xl border border-[#e5dccf] bg-transparent px-6 py-5 shadow-sm flex items-center gap-3 min-w-[300px]"
-            >
-              <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white drop-shadow-md text-sm font-bold shrink-0">
-                {i + 1}
-              </span>
-              <span className="text-base md:text-lg font-semibold text-white drop-shadow-md whitespace-nowrap">
-                {step}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </Section>
+        <span className="grid place-items-center w-10 h-10 md:w-12 md:h-12
+                         rounded-full bg-[#e36f33] text-white
+                         text-base md:text-lg font-extrabold shrink-0">
+          {i + 1}
+        </span>
+        <span className="text-lg md:text-xl font-semibold text-white whitespace-nowrap">
+          {step}
+        </span>
+      </li>
+    ))}
+  </ol>
+</Section>
+
 
       {/* CONTACT 섹션 */}
       <Section
