@@ -476,12 +476,12 @@ export default function Page() {
   </motion.div>
 
     <motion.div
-      className="md:col-span-1 space-y-4"
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.15 }}
-    >
+    className="md:w-1/2 space-y-4"
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay: 0.15 }}
+  >
       <p className="leading-7 text-[#3b342c]">
         여상수는 2023년 안양에서 시작된 안동식양념소갈비 전문 브랜드입니다.<br />
         가맹사업을 시작하여 현재 8개이상의 가맹점이 활발히 영업 중입니다.<br />
