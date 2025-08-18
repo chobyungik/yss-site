@@ -35,24 +35,23 @@ const NAV = [
 
 // 경쟁력(이유) 데이터: 각 항목의 bg를 섹션 전체 배경으로 사용, img는 보조 이미지
 const REASONS = [
-  {
-    num: "01",
-    title: "1인 운영 구조",
-    desc: `양념갈비살, 양념간받이, 한우대창, 청정특양 등.
-          여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만 다를 뿐 사실상 단일 메뉴인 셈입니다.
-공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
-여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
-완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,           
-    img: "/images/reason1.jpg",
-    bg: "/images/reason1-bg.jpg",
-    overlay: "bg-gradient-to-b from-black/60 via-black/40 to-transparent md:from-black/70 md:via-black/50",
-    textClass: "text-white drop-shadow-md",
-    <p
-  className={`inline-block max-w-3xl bg-black/30 px-3 py-2 rounded-md ${textClass}`}
->
-  {desc}
-</p>
-  },
+{
+  num: "01",
+  title: "1인 운영 구조",
+  desc: (
+    <p className="inline-block max-w-3xl text-white/95 text-sm md:text-base bg-black/35 px-3 py-2 rounded-md whitespace-pre-line">
+      양념갈비살, 양념간받이, 한우대창, 청정특양 등.
+      여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만 다를 뿐 사실상 단일 메뉴인 셈입니다.
+      공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
+      여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
+      완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.
+    </p>
+  ),
+  img: "/images/reason1.jpg",
+  bg: "/images/reason1-bg.jpg",
+  overlay: "bg-gradient-to-b from-black/60 via-black/40 to-transparent md:from-black/70 md:via-black/50",
+  textClass: "text-white drop-shadow-md",
+},
   {
     num: "02",
     title: "안정 객단가",
