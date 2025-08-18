@@ -282,7 +282,7 @@ function ReasonBand({
     img?: string | null;
     bg?: string | null;
     overlay?: string;
-    textClass?: string;
+    textClass?: string; //
   };
   flip?: boolean;
   header?: { title: string; subtitle?: string };
