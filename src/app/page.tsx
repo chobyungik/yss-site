@@ -207,9 +207,15 @@ function Section({
       {/* 내용은 배경 위에 올라오도록 z-10에 배치합니다 */}
       <div className="relative z-10">
         <Shell>
-          <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${titleClass}`}>{title}</h2>
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-3 ${titleClass}`}
+          >
+            {title}
+          </h2>
           {subtitle && (
-            <p className={`mb-8 text-[#6b6255] max-w-2xl leading-relaxed ${textClass}`}>
+            <p
+              className={`mb-8 text-[#6b6255] max-w-2xl leading-relaxed ${textClass}`}
+            >
               {subtitle}
             </p>
           )}
@@ -224,7 +230,12 @@ function Section({
 function Donut({ valuePercent }: { valuePercent: number }) {
   const dash = `${valuePercent} ${100 - valuePercent}`;
   return (
-    <svg viewBox="0 0 42 42" width="400" height="400" aria-label="profit donut">
+    <svg
+      viewBox="0 0 42 42"
+      width="400"
+      height="400"
+      aria-label="profit donut"
+    >
       <circle cx="21" cy="21" r="15.915" fill="#fff" />
       <circle
         cx="21"
@@ -271,13 +282,13 @@ function ReasonBand({
     img?: string | null;
     bg?: string | null;
     overlay?: string;
+    textClass?: string;
   };
   flip?: boolean;
   header?: { title: string; subtitle?: string };
 }) {
   return (
     <section className="relative py-20 text-[#222]">
-      {/* 배경 이미지 및 오버레이 */}
       {/* 배경 이미지 및 오버레이 */}
       {r.bg && (
         <>
@@ -330,13 +341,20 @@ function ReasonBand({
             <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
               이유 {r.num}
             </span>
-            <h3 className={`text-2xl font-semibold ${r.textClass || "text-[#2b2b2b]"}`}>
-  {r.title}
-</h3>
-<p className={`leading-6 whitespace-pre-line ${r.textClass || "text-[#4a4339]"}`}>
-  {r.desc}
-</p>
-
+            <h3
+              className={`text-2xl font-semibold ${
+                r.textClass || "text-[#2b2b2b]"
+              }`}
+            >
+              {r.title}
+            </h3>
+            <p
+              className={`leading-6 whitespace-pre-line ${
+                r.textClass || "text-[#4a4339]"
+              }`}
+            >
+              {r.desc}
+            </p>
           </div>
         </div>
       </Shell>
