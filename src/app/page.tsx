@@ -448,7 +448,7 @@ export default function Page() {
 
         {/* 🔸 메인 타이틀 가독성 강화: 굵게 + 강한 드롭섀도 */}
         <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)]">
-          할머니의 손맛 그대로, 안동식 양념 소갈비를
+          할머니의 손맛 그대로<br /></br> 안동식 양념 소갈비를
           <br className="hidden md:block" />
           트렌디하게 즐기는 여상수
         </h1>
