@@ -214,7 +214,7 @@ function Section({
           </h2>
           {subtitle && (
             <p
-              className={`mb-8 text-[#6b6255] max-w-2xl leading-relaxed ${textClass}`}
+              <className={`mb-8 text-[#6b6255] max-w-2xl leading-relaxed ${textClass}`}
             >
               {subtitle}
             </p>
