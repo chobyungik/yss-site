@@ -591,7 +591,7 @@ export default function Page() {
         <div className="mt-6 p-4 border border-[#e5dccf] rounded-xl text-sm text-[#4a4339]">
           같은 컨셉이라도 리모델링 범위나 공실 여부에 따라 총비용이 달라집니다. 현장 실측 후 상세 견적을 제공합니다.
         </div>
-      </Section>
+       </Section>
 
       {/* CASES 섹션 */}
       <Section
