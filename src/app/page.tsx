@@ -518,8 +518,8 @@ export default function Page() {
         subtitle="예상 수익 구조를 가시화한 표"
         bg={BG.profit}
         overlay=""
-        titleClass="text-[#e36f33]"
-        textClass="text-[#e36f33]"
+        titleClass=""
+        textClass=""
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
