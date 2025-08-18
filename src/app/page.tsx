@@ -452,36 +452,34 @@ export default function Page() {
 </header>
 
       {/* ABOUT 섹션 */}
-      <Section
+     <Section
   id="about"
   title="브랜드 소개"
   subtitle="핵심은 단일공정·원가율·빠른 회전율"
   bg={BG.about}
   overlay=""
 >
-  {/* md:grid-cols-3 → md:grid-cols-2 로 변경 */}
-  <div className="flex flex-col md:flex-row items-center gap-8">
-  <motion.div
-    className="md:w-1/2"
-    initial={{ opacity: 0, x: -40 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-  >
-    <img
-      src="/images/about-photo.jpg"
-      alt="대표"
-      className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
-    />
-  </motion.div>
+  <div className="grid md:grid-cols-2 gap-8 items-center">
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <img
+        src="/images/about-photo.jpg"
+        alt="대표"
+        className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
+      />
+    </motion.div>
 
     <motion.div
-    className="md:w-1/2 space-y-4"
-    initial={{ opacity: 0, x: 40 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: 0.15 }}
-  >
+      className="space-y-4"
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.15 }}
+    >
       <p className="leading-7 text-[#3b342c]">
         여상수는 2023년 안양에서 시작된 안동식양념소갈비 전문 브랜드입니다.<br />
         가맹사업을 시작하여 현재 8개이상의 가맹점이 활발히 영업 중입니다.<br />
