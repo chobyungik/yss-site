@@ -796,3 +796,4 @@ className="fixed bottom-6 right-6 bg-[#1f1a14] text-white px-4 py-3 rounded-full
 </div>
 );
 }
+ 
