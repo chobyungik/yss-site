@@ -29,7 +29,6 @@ const NAV = [
 { href: "#cost", label: "창업비용" },
 { href: "#cases", label: "사례" },
 { href: "#process", label: "절차" },
-{ href: "#faq", label: "FAQ" },
 { href: "#contact", label: "문의" },
 ];
 
