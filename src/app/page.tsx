@@ -45,7 +45,7 @@ const REASONS = [
 완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,
     img: "/images/reason1.jpg",
     bg: "/images/reason1-bg.jpg",
-    overlay: "",
+    overlay: "bg-gradient-to-b from-black/60 via-black/40 to-transparent md:from-black/70 md:via-black/50",
     textClass: "text-white drop-shadow-md",
   },
   {
