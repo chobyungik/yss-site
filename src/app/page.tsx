@@ -330,8 +330,13 @@ function ReasonBand({
             <span className="inline-block bg-[#e36f33] text-white text-xs font-bold rounded-full px-3 py-1">
               이유 {r.num}
             </span>
-            <h3 className="text-2xl font-semibold text-[#2b2b2b]">{r.title}</h3>
-            <p className="text-[#4a4339] leading-6 whitespace-pre-line">{r.desc}</p>
+            <h3 className={`text-2xl font-semibold ${r.textClass || "text-[#2b2b2b]"}`}>
+  {r.title}
+</h3>
+<p className={`leading-6 whitespace-pre-line ${r.textClass || "text-[#4a4339]"}`}>
+  {r.desc}
+</p>
+
           </div>
         </div>
       </Shell>
