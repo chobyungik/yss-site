@@ -400,23 +400,25 @@ alt={`${BRAND.name} 로고`}
 className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
 />
 </a>
-<div className="flex gap-6 text-sm overflow-x-auto whitespace-nowrap snap-x snap-mandatory -mx-2 px-2 md:mx-0 md:px-0">
-  {NAV.map((n) => (
-    <a
-      key={n.href}
-      href={n.href}
-      className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
-    >
-      {n.label}
-    </a>
-  ))}
+<div className="flex-1 min-w-0">
+  <div className="flex gap-6 text-sm overflow-x-auto whitespace-nowrap snap-x snap-mandatory px-2">
+    {NAV.map((n) => (
+      <a
+        key={n.href}
+        href={n.href}
+        className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
+      >
+        {n.label}
+      </a>
+    ))}
+  </div>
 </div>
 
 <a
-href="#contact"
-className="text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+  href="#contact"
+  className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
 >
-문의
+  문의
 </a>
 </nav>
 </Shell>
