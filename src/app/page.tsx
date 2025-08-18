@@ -468,10 +468,10 @@ export default function Page() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      {/* 리즌과 동일한 이미지 클래스 (고정 높이 제거) */}
       <img
         src="/images/about-photo.jpg"
         alt="대표"
+        /* h-[420px] 삭제, REASON과 동일한 클래스 */
         className="w-full rounded-xl border border-[#e5dccf] shadow object-cover"
       />
     </motion.div>
