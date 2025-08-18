@@ -493,6 +493,7 @@ export default function Page() {
               ? {
                   title: "경쟁력",
                   subtitle: "초보 창업자들에게 여상수를 권하는 5가지 이유",
+                textClass: "text-white drop-shadow-md",
                 }
               : undefined
           }
