@@ -404,7 +404,7 @@ export default function Page() {
             <div className="hidden md:flex gap-6 text-sm">
               {NAV.map((n) => (
                 <a
-                  key={n수
+                  key={n.href ?? n.label}
         </h1>
 
         {/* 🔸 서브 카피도 반투명 배경으로 가독성 업 */}
