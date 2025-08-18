@@ -664,7 +664,7 @@ export default function Page() {
               <span className="grid place-items-center w-8 h-8 rounded-full bg-[#e36f33] text-white drop-shadow-md text-sm font-bold shrink-0">
                 {i + 1}
               </span>
-              <span className="text-base md:text-lg font-semibold text-[#1f1a14] whitespace-nowrap">
+              <span className="text-base md:text-lg font-semibold text-white drop-shadow-md whitespace-nowrap">
                 {step}
               </span>
             </li>
