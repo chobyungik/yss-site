@@ -390,38 +390,96 @@ function ReasonBand({
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-[#222]">
-      {/* 네비게이션 바 */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-        <Shell>
-          <nav className="h-16 md:h-20 flex items-center justify-between">
-            <a href="#home" className="flex items-center gap-2">
-              <img
-                src={BRAND.logoSrc}
-                alt={`${BRAND.name} 로고`}
-                className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-              />
+  {/* 네비게이션 바 */}
+  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+    <Shell>
+      <nav className="h-16 md:h-20 flex items-center justify-between">
+        <a href="#home" className="flex items-center gap-2">
+          <img
+            src={BRAND.logoSrc}
+            alt={`${BRAND.name} 로고`}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
+          />
+        </a>
+        <div className="hidden md:flex gap-6 text-sm">
+          {NAV.map((n) => (
+            <a
+              key={n.href ?? n.label}
+              href={n.href}
+              className="hover:text-[#e36f33] transition"
+            >
+              {n.label}
             </a>
-            <div className="hidden md:flex gap-6 text-sm">
-              {NAV.map((n) => (
-                <a
-                  key={n.href ?? n.label}
-        </h1>
+          ))}
+        </div>
+      </nav>
+    </Shell>
+  </div>
+</div>
 
+
+
+
+
+
+
+나의 말:
+헤더 이런건 없어졌냐 왜 ?
+
+
+ChatGPT의 말:
+
+41s 동안 생각함
+tsx
+복사
+편집
+<div className="min-h-screen bg-white text-[#222]">
+  {/* 네비게이션 바 */}
+  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+    <Shell>
+      <nav className="h-16 md:h-20 flex items-center justify-between">
+        <a href="#home" className="flex items-center gap-2">
+          <img
+            src={BRAND.logoSrc}
+            alt={`${BRAND.name} 로고`}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
+          />
+        </a>
+        <div className="hidden md:flex gap-6 text-sm">
+          {NAV.map((n) => (
+            <a
+              key={n.href ?? n.label}
+              href={n.href}
+              className="hover:text-[#e36f33] transition"
+            >
+              {n.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    </Shell>
+  </div>
+
+  {/* HERO 헤더 */}
+  <header id="home" className="relative">
+    <Shell>
+      <div className="py-8 md:py-12">
         {/* 🔸 서브 카피도 반투명 배경으로 가독성 업 */}
         <p className="inline-block max-w-3xl text-white/95 text-sm md:text-base bg-black/35 px-3 py-2 rounded-md">
           매장 운영 경험이 없어도 가능한 동선·공정 설계. 리모델링 기반의 실속형 창업 모델을 소개합니다.
         </p>
-<div className="w-full" />
+
+        <div className="w-full" />
+
         <a
           href="#edge"
           className="inline-block mt-6 px-5 py-3 rounded-full bg-[#e36f33] text-white font-semibold hover:bg-[#c6541d] transition"
         >
           초보자에게 여상수를 추천하는 이유
         </a>
-      </motion.div>
-    </div>
-  </Shell>
-</header>
+      </div>
+    </Shell>
+  </header>
 
       {/* ABOUT 섹션 */}
      <Section
