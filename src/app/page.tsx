@@ -554,7 +554,7 @@ export default function Page() {
   title="창업비용"
   subtitle="소프트웨어 비용은 고정이며, 하드웨어는 현장 상황에 따라 변동"
   bg={BG.cost}
-  overlay="bg-gradient-to-b from-black/60 via-black/40 to-black/10 backdrop-blur-[1px]"
+  overlay="bg-gradient-to-b from-black/60 via-black/40 to-black/10 backdrop-blur-[2px]"
   titleClass=""
   textClass="text-white/90"
 >
