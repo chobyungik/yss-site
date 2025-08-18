@@ -404,53 +404,7 @@ export default function Page() {
             <div className="hidden md:flex gap-6 text-sm">
               {NAV.map((n) => (
                 <a
-                  key={n.href}
-                  href={n.href}
-                  className="hover:text-[#e36f33] transition-colors"
-                >
-                  {n.label}
-                </a>
-              ))}
-            </div>
-            <a
-              href="#contact"
-              className="text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
-            >
-              문의
-            </a>
-          </nav>
-        </Shell>
-      </div>
-
-      {/* 히어로 섹션 */}
-      <header id="home" className="relative">
-  <div className="absolute inset-0">
-    <img
-      src={BG.hero}
-      alt="hero"
-      className="w-full h-[80vh] object-cover"
-    />
-    {/* 🔹 가독성용 오버레이(그라데이션) 추가 */}
-    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent md:from-black/70 md:via-black/50" />
-  </div>
-
-  <Shell>
-    <div className="relative h-[80vh] flex items-center">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* 🔸 주황 문구 크게 + 배경 */}
-        <p className="inline-block bg-black/40 text-[#e36f33] font-semibold tracking-wider text-sm md:text-base px-2.5 py-1.5 rounded-md mb-3">
-          성공창업의 동반자
-        </p>
-
-        {/* 🔸 메인 타이틀 가독성 강화: 굵게 + 강한 드롭섀도 */}
-        <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-4 text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.7)]">
-          할머니의 손맛 그대로<br />안동식 양념 소갈비를
-          <br className="hidden md:block" />
-          트렌디하게 즐기는 여상수
+                  key={n수
         </h1>
 
         {/* 🔸 서브 카피도 반투명 배경으로 가독성 업 */}
