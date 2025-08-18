@@ -388,47 +388,38 @@ r.desc
 /* 메인 페이지 컴포넌트 */
 export default function Page() {
 return (
-<div className="min-h-screen bg-white text-[#222]">
-{/* 네비게이션 바 */}
 <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
   <Shell>
-  <nav className="h-16 md:h-20 flex items-center justify-between">
-    {/* 로고 */}
-    <a href="#home" className="flex items-center gap-2">
-      <img
-        src={BRAND.logoSrc}
-        alt={`${BRAND.name} 로고`}
-        className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-      />
-    </a>
+    <nav className="h-16 md:h-20 flex items-center w-full">
+      {/* 데스크톱 메뉴 */}
+      <div className="hidden md:flex gap-6 text-sm mx-auto">
+        {NAV.map((n) => (
+          <a
+            key={n.href}
+            href={n.href}
+            className="hover:text-[#e36f33] transition"
+          >
+            {n.label}
+          </a>
+        ))}
+      </div>
 
-    {/* PC 네비 */}
-    <div className="hidden md:flex gap-6 text-sm">
-      {NAV.map((n) => (
-        <a
-          key={n.href}
-          href={n.href}
-          className="hover:text-[#e36f33] transition"
-        >
-          {n.label}
-        </a>
-      ))}
-    </div>
-
-    {/* 모바일 네비 */}
-    <div className="flex md:hidden overflow-x-auto whitespace-nowrap gap-4 text-sm px-2">
-      {NAV.map((n) => (
-        <a
-          key={n.href}
-          href={n.href}
-          className="hover:text-[#e36f33] transition shrink-0"
-        >
-          {n.label}
-        </a>
-      ))}
-    </div>
-  </nav>
-</Shell>
+      {/* 모바일 메뉴 (가로 스크롤) */}
+      <div className="md:hidden w-full -mx-4 px-4 overflow-x-auto whitespace-nowrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-5 py-3">
+          {NAV.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              className="text-sm hover:text-[#e36f33] transition"
+            >
+              {n.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  </Shell>
 </div>
 <a
  href="#contact"
