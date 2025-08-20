@@ -389,28 +389,49 @@ r.desc
 export default function Page() {
 return (
 <div className="min-h-screen bg-white text-[#222]">
-{/* 네비게이션 바 */}
-<div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-<Shell>
-<nav className="h-16 md:h-20 flex items-center justify-between">
-<a href="#home" className="flex items-center gap-2">
-<img
-src={BRAND.logoSrc}
-alt={`${BRAND.name} 로고`}
-className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-/>
-</a>
-<div className="flex-1 min-w-0">
-  <div className="flex gap-6 text-sm overflow-x-auto whitespace-nowrap snap-x snap-mandatory px-2">
-    {NAV.map((n) => (
-      <a
-        key={n.href}
-        href={n.href}
-        className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
-      >
-        {n.label}
-      </a>
-    ))}
+  {/* 네비게이션 바 */}
+  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+    <Shell>
+      {/* ← 그리드로 바꿔서 큰 화면에서도 메뉴를 정확히 가운데 정렬 */}
+      <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center">
+        <a href="#home" className="flex items-center gap-2">
+          <img
+            src={BRAND.logoSrc}
+            alt={`${BRAND.name} 로고`}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
+          />
+        </a>
+
+        <div className="min-w-0">
+          <div
+            className="
+              flex gap-6 text-sm px-2
+              overflow-x-auto md:overflow-visible
+              whitespace-nowrap snap-x snap-mandatory
+              justify-start md:justify-center
+              [-ms-overflow-style:'none'] [scrollbar-width:'none'] [&::-webkit-scrollbar]:hidden
+            "
+          >
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
+              >
+                {n.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a
+          href="#contact"
+          className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+        >
+          문의
+        </a>
+      </nav>
+    </Shell>
   </div>
 </div>
 
