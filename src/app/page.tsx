@@ -435,25 +435,25 @@ export default function Page() {
       {/* 문의 버튼 (우측) */}
       <a
         href="#contact"
-        className="ml-auto shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+        className="ml-auto shrink-0 text-m px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
       >
         문의
       </a>
 
       {/* 데스크탑/넓은 화면: 화면 정중앙에 고정된 메뉴 */}
       <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
-        <div className="flex gap-6 text-sm">
-          {NAV.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="hover:text-[#e36f33] transition-colors"
-            >
-              {n.label}
-            </a>
-          ))}
-        </div>
-      </div>
+  <div className="flex gap-6 text-lg">
+    {NAV.map((n) => (
+      <a
+        key={n.href}
+        href={n.href}
+        className="whitespace-nowrap hover:text-[#e36f33] transition-colors"
+      >
+        {n.label}
+      </a>
+    ))}
+  </div>
+</div>
     </nav>
   </Shell>
 </div>
