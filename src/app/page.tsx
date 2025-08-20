@@ -442,7 +442,7 @@ export default function Page() {
 
       {/* 데스크탑/넓은 화면: 화면 정중앙에 고정된 메뉴 */}
       <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
-  <div className="flex gap-6 text-lg">
+  <div className="flex gap-6 text-m">
     {NAV.map((n) => (
       <a
         key={n.href}
