@@ -4,10 +4,10 @@ import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 /*
- 여상수 랜딩 페이지 - 섹션별 배경을 자유롭게 설정할 수 있도록 개편한 버전.
- - 각 섹션은 BG 객체에 정의된 사진을 배경으로 사용하며, ReasonBand를 통해 개별 경쟁력 항목마다 배경 사진을 지정할 수 있습니다.
- - 기본 배경색을 흰색으로 설정하여 우드톤을 제거하였습니다.
- - 글씨 가독성을 위해 적절한 흰색/검정 오버레이를 섹션별로 적용할 수 있습니다.
+여상수 랜딩 페이지 - 섹션별 배경을 자유롭게 설정할 수 있도록 개편한 버전.
+- 각 섹션은 BG 객체에 정의된 사진을 배경으로 사용하며, ReasonBand를 통해 개별 경쟁력 항목마다 배경 사진을 지정할 수 있습니다.
+- 기본 배경색을 흰색으로 설정하여 우드톤을 제거하였습니다.
+- 글씨 가독성을 위해 적절한 흰색/검정 오버레이를 섹션별로 적용할 수 있습니다.
 */
 
 // 브랜드 정보 및 네비게이션
@@ -39,11 +39,11 @@ num: "01",
 title: "1인 운영 구조",
 desc:     
 `양념갈비살, 양념간받이, 한우대창, 청정특양 등.
-     여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만
-     다를 뿐 사실상 단일 메뉴인 셈입니다.
-     공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
-     여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
-     완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,
+    여러 부위의 소고기이지만 같은 양념 비율과 조리 방식만
+    다를 뿐 사실상 단일 메뉴인 셈입니다.
+    공정이 다른 메뉴들이 많으면 인력을 많이 써야 하지만,
+    여상수는 사실상 단일 메뉴를 숙달해서 조리를 하기 때문에
+    완성도는 높지만 주방에 혼자서 일하는 게 가능합니다.`,
 img: "/images/reason1.jpg",
 bg: "/images/reason1-bg.jpg",
 overlay: "bg-gradient-to-b from-black/90 via-black/70 to-black/50 md:from-black/90 md:via-black/70",
@@ -82,12 +82,12 @@ textClass: "text-white drop-shadow-md"
 num: "04",
 title: "낮은 투자비",
 desc: `여상수는 작은 규모의 매장에서 출발합니다.
-   인테리어는 이미 체계적으로 매뉴얼이 잡혀 있어,
-   불필요한 과투자 없이 빠르고 간결하게 리모델링이 가능합니다.
-   특히 덕트 같은 기본 설비가 갖춰진 매장을 인수한다면,
-   공사비를 크게 줄이고 운영 준비 기간까지 단축할 수 있습니다.
-   화려한 시설에 비용을 쓰기보다 필수 요소만 효율적으로 투자해
-   안정적으로 시작할 수 있다는 것이 여상수의 강점입니다.`,
+  인테리어는 이미 체계적으로 매뉴얼이 잡혀 있어,
+  불필요한 과투자 없이 빠르고 간결하게 리모델링이 가능합니다.
+  특히 덕트 같은 기본 설비가 갖춰진 매장을 인수한다면,
+  공사비를 크게 줄이고 운영 준비 기간까지 단축할 수 있습니다.
+  화려한 시설에 비용을 쓰기보다 필수 요소만 효율적으로 투자해
+  안정적으로 시작할 수 있다는 것이 여상수의 강점입니다.`,
 img: "/images/reason4.jpg",
 bg: "/images/reason4-bg.jpg",
 overlay: "",
@@ -96,12 +96,12 @@ overlay: "",
 num: "05",
 title: "유행을 타지 않는 아이템",
 desc: `양념소갈비는 한식이자 대중적인 메뉴로,
-   특별한 날에만 찾는 음식이 아니라 누구나 언제든
-   즐길 수 있는 안정적인 아이템입니다.
-   특히 젊은 층 위주의 신도시보다는, 오래된 구도심이나 오피스 상권,
-   공장지대, 구축 아파트 단지 상권에서 수요가 높습니다.
-   가족 단위, 직장 회식, 동네 단골까지 폭넓은 소비층을
-   확보할 수 있어 계절이나 유행에 흔들리지 않는 것이 장점입니다.`,
+  특별한 날에만 찾는 음식이 아니라 누구나 언제든
+  즐길 수 있는 안정적인 아이템입니다.
+  특히 젊은 층 위주의 신도시보다는, 오래된 구도심이나 오피스 상권,
+  공장지대, 구축 아파트 단지 상권에서 수요가 높습니다.
+  가족 단위, 직장 회식, 동네 단골까지 폭넓은 소비층을
+  확보할 수 있어 계절이나 유행에 흔들리지 않는 것이 장점입니다.`,
 img: "/images/reason5.jpg",
 bg: "/images/reason5-bg.jpg",
 overlay: "bg-gradient-to-b from-black/90 via-black/70 to-black/50 md:from-black/90 md:via-black/70",
@@ -140,6 +140,7 @@ const COST_HARD = [
 const CASES = [
 {
 name: "안양중앙시장점(20평)",
+
 before: "/images/안양before.jpg",
 after: "/images/안양after.jpg",
 memo: "덕트/가스/전기 보강 + 주방설비 + 간판",
@@ -180,9 +181,9 @@ return <div className="w-full max-w-6xl mx-auto px-4">{children}</div>;
 }
 
 /* 섹션 컴포넌트
-  - bg: 배경 이미지 경로
-  - overlay: Tailwind 클래스로 지정하는 밝은 오버레이
-  - fixed: true면 배경 고정(parallax)
+ - bg: 배경 이미지 경로
+ - overlay: Tailwind 클래스로 지정하는 밝은 오버레이
+ - fixed: true면 배경 고정(parallax)
 */
 function Section({
 id,
@@ -348,8 +349,8 @@ className={`absolute inset-0 z-10 pointer-events-none ${r.overlay}`}
 )}
 <div
 className={`relative z-20 flex flex-col md:flex-row items-center gap-10 ${
-           flip ? "md:flex-row-reverse" : ""
-         }`}
+          flip ? "md:flex-row-reverse" : ""
+        }`}
 >
 {r.img && (
 <div className="md:w-1/2">
@@ -389,46 +390,36 @@ r.desc
 export default function Page() {
 return (
 <div className="min-h-screen bg-white text-[#222]">
-  {/* 네비게이션 바 */}
-  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-    <Shell>
-      {/* PC: 가운데 정렬, 모바일: 슬라이스 스크롤 */}
-      <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center">
-        <a href="#home" className="flex items-center gap-2">
-          <img
-            src={BRAND.logoSrc}
-            alt={`${BRAND.name} 로고`}
-            className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-          />
-        </a>
-
-        <div className="min-w-0">
-          <div className="flex gap-6 text-sm px-2 overflow-x-auto md:overflow-visible whitespace-nowrap snap-x snap-mandatory justify-start md:justify-center">
-            {NAV.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
-              >
-                {n.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <a href="#contact" className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition">
-          문의
-        </a>
-      </nav>
-    </Shell>
-  </div>
+{/* 네비게이션 바 */}
+<div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+<Shell>
+<nav className="h-16 md:h-20 flex items-center justify-between">
+<a href="#home" className="flex items-center gap-2">
+<img
+src={BRAND.logoSrc}
+alt={`${BRAND.name} 로고`}
+className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
+/>
+</a>
+<div className="flex-1 min-w-0">
+<div className="flex gap-6 text-sm overflow-x-auto whitespace-nowrap snap-x snap-mandatory px-2">
+{NAV.map((n) => (
+<a
+key={n.href}
+href={n.href}
+className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
+>
+{n.label}
+</a>
+))}
+</div>
 </div>
 
 <a
-  href="#contact"
-  className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+href="#contact"
+className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
 >
-  문의
+문의
 </a>
 </nav>
 </Shell>
@@ -666,13 +657,13 @@ src={c.after}
 alt={`${c.name} after`}
 className="w-full h-[360px] md:h-[420px] object-cover rounded-xl shadow border border-[#e5dccf]"
 />
-                               <div
-  className="mt-4 p-4 rounded-xl border border-[#e5dccf] shadow-md"
-  style={{ backgroundColor: "#FFF1E6" }}
+<div
+className="mt-4 p-4 rounded-xl border border-[#e5dccf] shadow-md"
+style={{ backgroundColor: "#FFF1E6" }}
 >
-  <h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
-  <p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
-  <p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
+<h4 className="font-semibold text-[#2b2b2b]">{c.name}</h4>
+<p className="text-sm text-[#4a4339] mt-1">{c.memo}</p>
+<p className="text-sm text-[#6b6255] mt-1">{c.total}</p>
 </div>
 </div>
 </motion.div>
@@ -700,12 +691,12 @@ textClass="text-white drop-shadow-md"
 <li
 key={step}
 className="inline-flex items-center gap-4 px-6 py-4
-                  rounded-2xl bg-black/55 backdrop-blur-sm
-                  ring-1 ring-white/20 shadow-md w-fit"
+                 rounded-2xl bg-black/55 backdrop-blur-sm
+                 ring-1 ring-white/20 shadow-md w-fit"
 >
 <span className="grid place-items-center w-10 h-10 md:w-12 md:h-12
-                        rounded-full bg-[#e36f33] text-white
-                        text-base md:text-lg font-extrabold shrink-0">
+                       rounded-full bg-[#e36f33] text-white
+                       text-base md:text-lg font-extrabold shrink-0">
 {i + 1}
 </span>
 <span className="text-lg md:text-xl font-semibold text-white whitespace-nowrap">
@@ -809,4 +800,3 @@ className="fixed bottom-6 right-6 bg-[#1f1a14] text-white px-4 py-3 rounded-full
 </div>
 );
 }
- 
