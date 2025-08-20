@@ -403,59 +403,61 @@ function ReasonBand({
 export default function Page() {
   return (
    <div className="min-h-screen bg-white text-[#222]">
-      {/* 네비게이션 바 */} 
+  {/* 네비게이션 바 */}
   <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-  <Shell>
-    {/* PC: 가운데 고정, 모바일: 슬라이스 스크롤 */}
-    <nav className="relative h-16 md:h-20 flex items-center">
-      {/* 로고 (좌측) */}
-      <a href="#home" className="flex items-center gap-2 shrink-0">
-        <img
-          src={BRAND.logoSrc}
-          alt={`${BRAND.name} 로고`}
-          className="h-12 md:h-14 lg:h-16 w-auto object-contain"
-        />
-      </a>
+    <Shell>
+      {/* 좌(로고) - 가운데(메뉴) - 우(문의) */}
+      <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center gap-3">
+        {/* 로고 */}
+        <a href="#home" className="flex items-center gap-2 shrink-0">
+          <img
+            src={BRAND.logoSrc}
+            alt={`${BRAND.name} 로고`}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain"
+          />
+        </a>
 
-      {/* 모바일/좁은 화면: 좌우 슬라이스 되는 메뉴 */}
-      <div className="flex-1 min-w-0 md:hidden ml-3">
-        <div className="flex gap-6 text-sm px-2 overflow-x-auto whitespace-nowrap snap-x snap-mandatory">
-          {NAV.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
-            >
-              {n.label}
-            </a>
-          ))}
+        {/* 가운데 메뉴: 모바일=슬라이스 / 데스크탑=정중앙 고정 */}
+        <div className="min-w-0">
+          {/* 모바일/좁은화면: 좌우 슬라이스 */}
+          <div className="md:hidden flex gap-6 text-sm px-2 overflow-x-auto whitespace-nowrap snap-x snap-mandatory">
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
+              >
+                {n.label}
+              </a>
+            ))}
+          </div>
+
+          {/* 데스크탑/넓은화면: 화면 정중앙 고정(좌우와 간섭 X) */}
+          <div className="hidden md:flex justify-center">
+            <div className="flex gap-7 text-base lg:text-lg whitespace-nowrap">
+              {NAV.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  className="hover:text-[#e36f33] transition-colors"
+                >
+                  {n.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* 문의 버튼 (우측) */}
-      <a
-        href="#contact"
-        className="ml-auto shrink-0 text-m px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
-      >
-        문의
-      </a>
-
-      {/* 데스크탑/넓은 화면: 화면 정중앙에 고정된 메뉴 */}
-      <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
-  <div className="flex gap-6 text-m">
-    {NAV.map((n) => (
-      <a
-        key={n.href}
-        href={n.href}
-        className="whitespace-nowrap hover:text-[#e36f33] transition-colors"
-      >
-        {n.label}
-      </a>
-    ))}
+        {/* 문의 버튼(우측) */}
+        <a
+          href="#contact"
+          className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+        >
+          문의
+        </a>
+      </nav>
+    </Shell>
   </div>
-</div>
-    </nav>
-  </Shell>
 </div>
       {/* 히어로 섹션 */}
       <header id="home" className="relative">
