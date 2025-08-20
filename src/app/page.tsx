@@ -392,7 +392,7 @@ return (
   {/* 네비게이션 바 */}
   <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
     <Shell>
-      {/* ← 그리드로 바꿔서 큰 화면에서도 메뉴를 정확히 가운데 정렬 */}
+      {/* PC: 가운데 정렬, 모바일: 슬라이스 스크롤 */}
       <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center">
         <a href="#home" className="flex items-center gap-2">
           <img
@@ -403,15 +403,7 @@ return (
         </a>
 
         <div className="min-w-0">
-          <div
-            className="
-              flex gap-6 text-sm px-2
-              overflow-x-auto md:overflow-visible
-              whitespace-nowrap snap-x snap-mandatory
-              justify-start md:justify-center
-              [-ms-overflow-style:'none'] [scrollbar-width:'none'] [&::-webkit-scrollbar]:hidden
-            "
-          >
+          <div className="flex gap-6 text-sm px-2 overflow-x-auto md:overflow-visible whitespace-nowrap snap-x snap-mandatory justify-start md:justify-center">
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -424,10 +416,7 @@ return (
           </div>
         </div>
 
-        <a
-          href="#contact"
-          className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
-        >
+        <a href="#contact" className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition">
           문의
         </a>
       </nav>
