@@ -402,7 +402,9 @@ function ReasonBand({
 /* 메인 페이지 컴포넌트 */
 export default function Page() {
   return (
-    <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+   <div className="min-h-screen bg-white text-[#222]">
+      {/* 네비게이션 바 */} 
+   <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
   <Shell>
     {/* PC: 가운데 정렬, 모바일: 슬라이스 스크롤 */}
     <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center">
