@@ -403,43 +403,45 @@ function ReasonBand({
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-[#222]">
-      {/* 네비게이션 바 */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
-        <Shell>
-          {/* PC: 가운데 정렬, 모바일: 슬라이스 스크롤 */}
-          <nav className="h-16 md:h-20 grid grid-cols-[auto,1fr,auto] items-center">
-            {/* 로고 */}
-            <a href="#home" className="flex items-center gap-2">
-              <img
-                src={BRAND.logoSrc}
-                alt={`${BRAND.name} 로고`}
-                className="h-12 md:h-14 lg:h-16 w-auto object-contain shrink-0"
-              />
-            </a>
-            {/* 네비게이션 링크: 모바일에서 슬라이스, PC에서 중앙 정렬 */}
-            <div className="min-w-0">
-              <div className="flex gap-6 text-sm px-2 overflow-x-auto md:overflow-visible whitespace-nowrap snap-x snap-mandatory justify-start md:justify-center">
-                {NAV.map((n) => (
-                  <a
-                    key={n.href}
-                    href={n.href}
-                    className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
-                  >
-                    {n.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-            {/* 우측 문의 버튼 */}
-            <a
-              href="#contact"
-              className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
-            >
-              문의
-            </a>
-          </nav>
-        </Shell>
-      </div>
+  {/* 네비게이션 바 */}
+  <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-[#e5dccf]">
+    <Shell>
+      <nav className="h-16 md:h-20 flex items-center justify-between">
+        {/* 로고 */}
+        <a href="#home" className="flex items-center gap-2 shrink-0">
+          <img
+            src={BRAND.logoSrc}
+            alt={`${BRAND.name} 로고`}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain"
+          />
+        </a>
+
+        {/* 네비게이션 메뉴 */}
+        <div className="flex-1 flex justify-center min-w-0">
+          <div className="flex gap-6 text-sm px-2 overflow-x-auto md:overflow-visible whitespace-nowrap snap-x snap-mandatory">
+            {NAV.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="hover:text-[#e36f33] transition-colors snap-start shrink-0"
+              >
+                {n.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* 문의 버튼 */}
+        <a
+          href="#contact"
+          className="shrink-0 text-sm px-3 py-1 rounded-full border border-[#d9cfbc] bg-white/70 hover:bg-white/90 transition"
+        >
+          문의
+        </a>
+      </nav>
+    </Shell>
+  </div>
+</div>
 
       {/* 히어로 섹션 */}
       <header id="home" className="relative">
